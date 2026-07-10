@@ -1,7 +1,7 @@
 import { GalleryHorizontalEnd } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import { Signature } from "@/components/signature";
+import { AnimatedSignature } from "@/components/animated-signature";
 import {
   currentRole,
   education,
@@ -94,7 +94,7 @@ export default function Home() {
         <GalleryHorizontalEnd size={17} strokeWidth={1.5} />
       </Link>
 
-      <Signature />
+      <AnimatedSignature />
     </div>
   );
 }
