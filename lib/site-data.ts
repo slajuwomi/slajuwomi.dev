@@ -17,16 +17,14 @@ export const education = {
   schoolUrl: "https://www.hsutx.edu/",
   degree: "BS in Computer Science",
   year: "2025",
-  // A real school logo was not present in the source repo. Keep this null until supplied.
-  logo: null,
+  logo: "/assets/logos/hsu-logo.png",
 } as const;
 
 export const currentRole = {
   role: "Software Developer",
   company: "Directors Investment Group",
   companyUrl: "https://digfamily.co/",
-  // A real employer logo was not present in the source repo. Keep this null until supplied.
-  logo: null,
+  logo: "/assets/logos/dig-logo.png",
 } as const;
 
 export const previousRoles = [
@@ -62,8 +60,7 @@ export const projects: readonly Project[] = [
     tags: ["Ionic React", "TypeScript", "Capstone"],
     demoUrl: "https://cowboy-cards.onrender.com",
     githubUrl: "https://github.com/HSU-Senior-Project-2025/Cowboy_Cards",
-    // Replace with a real local screenshot before launch.
-    image: null,
+    image: "/assets/projects/cowboy-cards-screenshot.png",
     imageAlt: "Cowboy Cards project screenshot",
   },
   {
@@ -73,8 +70,7 @@ export const projects: readonly Project[] = [
     tags: ["React", "JavaScript", "CRUD"],
     demoUrl: null,
     githubUrl: "https://github.com/slajuwomi/Books4Sale",
-    // Replace with a real local screenshot before launch.
-    image: null,
+    image: "/assets/projects/books4sale-screenshot.png",
     imageAlt: "Books4Sale project screenshot",
   },
   {
@@ -84,8 +80,7 @@ export const projects: readonly Project[] = [
     tags: ["Python", "GPT-2", "NLP"],
     demoUrl: null,
     githubUrl: "https://github.com/slajuwomi/drake-lyrics-generator",
-    // Replace with a real local screenshot before launch.
-    image: null,
+    image: "/assets/projects/drake-lyrics-generator-screenshot.png",
     imageAlt: "Drake Lyrics Generator project screenshot",
   },
 ] as const;
