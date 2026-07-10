@@ -1,65 +1,152 @@
+import { GalleryHorizontalEnd } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
+import { Signature } from "@/components/signature";
+import {
+  currentRole,
+  education,
+  previousRoles,
+  projects,
+} from "@/lib/site-data";
 
 export default function Home() {
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="space-y-7 text-base text-stone-600 dark:text-stone-400">
+      <h1 className="sr-only">About Stephen Lajuwomi</h1>
+
+      <DiamondRow>
+        <div className="flex flex-wrap items-center gap-2">
+          <span>{currentRole.role}</span>
+          <LogoAsset
+            src={currentRole.logo}
+            alt={`${currentRole.company} logo`}
+            pendingLabel="DIG logo pending"
+          />
+          <ExternalTextLink href={currentRole.companyUrl}>
+            {currentRole.company}
+          </ExternalTextLink>
+        </div>
+      </DiamondRow>
+
+      <DiamondRow>
+        <div className="flex flex-wrap items-center gap-2">
+          <span>{education.degree}</span>
+          <LogoAsset
+            src={education.logo}
+            alt={`${education.school} logo`}
+            pendingLabel="HSU logo pending"
+          />
+          <ExternalTextLink href={education.schoolUrl}>
+            {education.school}
+          </ExternalTextLink>
+          <span className="text-stone-500">({education.year})</span>
+        </div>
+      </DiamondRow>
+
+      <DiamondRow>
+        <div>
+          <p className="font-medium italic text-stone-700 dark:text-stone-300">
+            what i&apos;ve been building:
           </p>
+          <ul className="mt-3 space-y-3 pl-5">
+            {projects.map((project) => (
+              <li key={project.slug} className="relative">
+                <span className="absolute -left-5 text-stone-500" aria-hidden="true">
+                  ↳
+                </span>
+                <ExternalTextLink href={project.githubUrl}>
+                  {project.name}
+                </ExternalTextLink>
+                <span> {project.description.toLowerCase()}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </DiamondRow>
+
+      <DiamondRow>
+        <div>
+          <p className="font-medium italic text-stone-700 dark:text-stone-300">
+            previously:
+          </p>
+          <ul className="mt-3 space-y-3 pl-5">
+            {previousRoles.map((item) => (
+              <li key={`${item.company}-${item.role}`} className="relative">
+                <span className="absolute -left-5 text-stone-500" aria-hidden="true">
+                  ↳
+                </span>
+                <span className="font-medium text-stone-700 dark:text-stone-300">
+                  {item.role}
+                </span>{" "}
+                at {item.company}
+                <span className="block text-sm text-stone-500">{item.dates}</span>
+              </li>
+            ))}
+          </ul>
         </div>
-      </main>
+      </DiamondRow>
+
+      <Link
+        href="/projects"
+        className="flex items-center justify-center gap-2 rounded-lg border border-stone-400 bg-stone-50 px-6 py-4 text-center text-stone-600 shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98] dark:border-stone-600 dark:bg-stone-900 dark:text-stone-400"
+      >
+        see what i&apos;ve built
+        <GalleryHorizontalEnd size={17} strokeWidth={1.5} />
+      </Link>
+
+      <Signature />
     </div>
   );
+}
+
+function DiamondRow({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="group flex items-start gap-4 transition-transform duration-200 hover:translate-x-1">
+      <span
+        aria-hidden="true"
+        className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-stone-800 transition-transform duration-200 group-hover:rotate-90 group-hover:scale-110 dark:bg-stone-200"
+      />
+      <div className="min-w-0 flex-1">{children}</div>
+    </div>
+  );
+}
+
+function ExternalTextLink({
+  href,
+  children,
+}: {
+  href: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="sweep-link font-medium text-stone-700 transition-colors hover:text-stone-900 dark:text-stone-300 dark:hover:text-stone-100"
+    >
+      {children}
+    </a>
+  );
+}
+
+function LogoAsset({
+  src,
+  alt,
+  pendingLabel,
+}: {
+  src: string | null;
+  alt: string;
+  pendingLabel: string;
+}) {
+  if (!src) {
+    // This label makes the missing real asset clear without inventing a logo.
+    return (
+      <span className="rounded border border-dashed border-stone-300 px-1.5 py-0.5 text-xs text-stone-500 dark:border-stone-700">
+        {pendingLabel}
+      </span>
+    );
+  }
+
+  return <Image src={src} alt={alt} width={22} height={22} />;
 }

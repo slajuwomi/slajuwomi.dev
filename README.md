@@ -1,36 +1,52 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# slajuwomi.dev
 
-## Getting Started
+Stephen Lajuwomi's public portfolio. It uses Next.js 16, TypeScript, Tailwind CSS, and MDX.
 
-First, run the development server:
+## Local development
+
+Install dependencies and start the app:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+No environment variables are required for the local portfolio milestone.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Routes
 
-## Learn More
+- `/` contains the About list.
+- `/projects` contains searchable project cards.
+- `/writing` lists MDX posts.
+- `/writing/[slug]` renders a post from `content/writing`.
 
-To learn more about Next.js, take a look at the following resources:
+Old `/productivity` routes permanently redirect to `productivity.slajuwomi.dev`.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Add writing
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Add an `.mdx` file under `content/writing`. See `content/writing/README.md` for the frontmatter shape.
 
-## Deploy on Vercel
+## Real asset blockers
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The source repo did not contain these real assets:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- Directors Investment Group logo.
+- Hardin-Simmons University logo.
+- Screenshots for Cowboy Cards, Books4Sale, and Drake Lyrics Generator.
+- Stephen's signature SVG paths.
+
+The UI marks missing logos and project media. The signature renders nothing until a real signature is supplied. Do not replace these with fake logos, stock screenshots, or generated signature marks.
+
+Follow `docs/signature-guide.md` for the signature workflow. Add real project screenshots under `public/assets/projects`, then set each `image` path in `lib/site-data.ts`.
+
+## Checks
+
+```bash
+npm run lint
+npm run build
+```
+
+## Deploy
+
+Create a Vercel project from this repo and attach `slajuwomi.dev`. The app has no server database or runtime secrets.

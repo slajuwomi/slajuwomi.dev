@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" role="img" aria-labelledby="title description">
+  <title id="title">Project media pending</title>
+  <desc id="description">A neutral placeholder reserved for a real project screenshot.</desc>
+  <rect width="1000" height="600" fill="#e7e5e4"/>
+  <rect x="260" y="205" width="480" height="190" rx="14" fill="#f5f5f4" stroke="#a8a29e" stroke-dasharray="10 10"/>
+  <text x="500" y="292" fill="#57534e" font-family="system-ui, sans-serif" font-size="28" text-anchor="middle">project media pending</text>
+  <text x="500" y="334" fill="#78716c" font-family="system-ui, sans-serif" font-size="18" text-anchor="middle">replace with a real local screenshot</text>
+</svg>
