@@ -5,15 +5,15 @@ import { Command } from "cmdk";
 import {
   BookOpen,
   BriefcaseBusiness,
-  Code2,
-  Contact,
-  GitFork,
+  CodeXml,
+  Github,
   Home,
+  Linkedin,
   Mail,
-  MessageCircle,
   Moon,
   Search,
   Sun,
+  Twitter,
   X,
 } from "lucide-react";
 import Link from "next/link";
@@ -35,12 +35,13 @@ const navigation = [
   { label: "writing", href: "/writing", icon: BookOpen },
 ] as const;
 
+// Match Martin Sit's footer: Lucide brand/utility icons instead of generic shapes.
 const externalLinks = [
-  { label: "x", href: site.social.twitter, icon: MessageCircle },
-  { label: "linkedin", href: site.social.linkedin, icon: Contact },
-  { label: "github", href: site.social.github, icon: GitFork },
+  { label: "x", href: site.social.twitter, icon: Twitter },
+  { label: "linkedin", href: site.social.linkedin, icon: Linkedin },
+  { label: "github", href: site.social.github, icon: Github },
   { label: "email", href: `mailto:${site.email}`, icon: Mail },
-  { label: "source", href: site.repositoryUrl, icon: Code2 },
+  { label: "source", href: site.repositoryUrl, icon: CodeXml },
 ] as const;
 
 function getCurrentTheme(): Theme {
@@ -144,9 +145,9 @@ export function SiteChrome({ children }: { children: ReactNode }) {
         </button>
       </header>
 
-      <div className="min-h-[52dvh] py-8">{children}</div>
+      <div className="pt-8">{children}</div>
 
-      <footer className="mt-auto flex flex-col gap-4 border-t border-stone-200 pt-5 text-xs text-stone-500 dark:border-stone-800">
+      <footer className="mt-4 flex flex-col gap-4 border-t border-stone-200 pt-4 text-xs text-stone-500 dark:border-stone-800">
         <div className="flex items-center gap-4">
           {externalLinks.map(({ label, href, icon: Icon }) => (
             <a
