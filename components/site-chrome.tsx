@@ -11,7 +11,6 @@ import {
   Linkedin,
   Mail,
   Moon,
-  Search,
   Sun,
   Twitter,
   X,
@@ -134,14 +133,24 @@ export function SiteChrome({ children }: { children: ReactNode }) {
           {theme === "dark" ? <Sun size={16} /> : <Moon size={16} />}
         </button>
 
+        {/* The larger, high-contrast keycaps keep the shortcut readable at a glance. */}
         <button
           type="button"
           onClick={() => setPaletteOpen(true)}
-          className="hidden items-center gap-1 rounded-md border border-stone-200 bg-stone-50 px-2 py-1 text-xs text-stone-500 transition-colors hover:border-stone-400 hover:text-stone-800 md:flex dark:border-stone-700 dark:bg-stone-900 dark:hover:border-stone-500 dark:hover:text-stone-200"
+          className="hidden items-center gap-1.5 rounded-[9px] border border-stone-300 bg-stone-100 px-1.5 py-1 text-stone-600 shadow-sm transition-[border-color,background-color,transform] duration-200 hover:border-stone-400 hover:bg-stone-200 active:scale-[0.98] md:flex dark:border-stone-700 dark:bg-[#292727] dark:text-stone-200 dark:shadow-black/20 dark:hover:border-stone-600 dark:hover:bg-[#302e2e]"
           aria-label="Open command palette"
         >
-          <Search size={12} />
-          <kbd className="font-mono">⌘K</kbd>
+          {/* A fixed square gives the command symbol the same visual weight as K. */}
+          <kbd className="flex size-6.5 items-center justify-center rounded-md border border-stone-300 bg-white font-sans text-sm leading-none font-medium text-stone-800 shadow-sm dark:border-stone-600 dark:bg-[#494646] dark:text-stone-100 dark:shadow-black/25">
+            ⌘
+          </kbd>
+          <span className="text-sm leading-none font-medium text-stone-500 dark:text-stone-400" aria-hidden="true">
+            +
+          </span>
+          {/* Matching dimensions make the two-key shortcut feel balanced. */}
+          <kbd className="flex size-6.5 items-center justify-center rounded-md border border-stone-300 bg-white font-sans text-sm leading-none font-medium text-stone-800 shadow-sm dark:border-stone-600 dark:bg-[#494646] dark:text-stone-100 dark:shadow-black/25">
+            K
+          </kbd>
         </button>
       </header>
 
