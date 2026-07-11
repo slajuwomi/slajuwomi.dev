@@ -24,6 +24,7 @@ import {
   useState,
   useSyncExternalStore,
 } from "react";
+import { applyFavicon } from "@/lib/favicon";
 import { site } from "@/lib/site-data";
 
 type Theme = "light" | "dark";
@@ -65,8 +66,16 @@ export function SiteChrome({ children }: { children: ReactNode }) {
     document.documentElement.classList.toggle("dark", nextTheme === "dark");
     document.documentElement.style.colorScheme = nextTheme;
     localStorage.setItem("theme", nextTheme);
+    // Keep the browser tab icon in sync with the page theme.
+    applyFavicon(nextTheme);
     // Notify React because the theme source lives on the document element.
     window.dispatchEvent(new Event("themechange"));
+  }, []);
+
+  useEffect(() => {
+    // React hydration can reset link hrefs to the light defaults from JSX;
+    // re-apply so a stored dark theme keeps the dark tab icon.
+    applyFavicon(getCurrentTheme());
   }, []);
 
   useEffect(() => {
