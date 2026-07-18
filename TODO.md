@@ -1,0 +1,1 @@
+ - [ ] clean up light mode a bit. the squares look a bit different than dark mode. The geometry lines are much lighter and harder to see. be nice if we could get dark mode and light mode blocks looking almost the smae. also the "stars" are not visible in light mode.
