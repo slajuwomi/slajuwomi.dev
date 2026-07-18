@@ -15,7 +15,7 @@ html {
 }
 
 html.dark {
-  background: #030805;
+  background: #030303;
 }
 
 body {
@@ -46,7 +46,7 @@ a {
 }
 
 .dark .site-canvas {
-  background-color: #030805;
+  background-color: #030303;
   color: #a4aaa3;
 }
 

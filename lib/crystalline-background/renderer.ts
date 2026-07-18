@@ -29,7 +29,7 @@ type Palette = {
 
 const PALETTES: Record<Theme, Palette> = {
   dark: {
-    fog: "#071009",
+    fog: "#030303",
     solid: "#07140c",
     shell: "#527052",
     wire: "#82915c",
@@ -44,17 +44,17 @@ const PALETTES: Record<Theme, Palette> = {
   },
   light: {
     fog: "#f1f0e8",
-    solid: "#c8d0bd",
-    shell: "#667b5e",
-    wire: "#6c774c",
-    energy: { moss: "#7d8f66", gold: "#ad943d", amber: "#92713a" },
-    particle: ["#708064", "#a88d3e"],
-    shellOpacity: 0.055,
-    wireOpacity: 0.06,
-    energyOpacity: 0.1,
-    particleOpacity: 0.28,
-    bloom: 0.08,
-    exposure: 0.92,
+    solid: "#89967c",
+    shell: "#4f6549",
+    wire: "#6f7443",
+    energy: { moss: "#526b45", gold: "#a17b22", amber: "#905927" },
+    particle: ["#526b45", "#a17b22"],
+    shellOpacity: 0.14,
+    wireOpacity: 0.11,
+    energyOpacity: 0.48,
+    particleOpacity: 0.4,
+    bloom: 0.04,
+    exposure: 1,
   },
 };
 
