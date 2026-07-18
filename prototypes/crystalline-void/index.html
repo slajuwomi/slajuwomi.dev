@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#020711" />
+    <title>Crystalline Void — Throwaway Prototype</title>
+  </head>
+  <body>
+    <div id="fallback" aria-hidden="true"></div>
+    <div id="scene" aria-hidden="true"></div>
+
+    <div class="prototype-badge">throwaway prototype</div>
+
+    <main class="site-column">
+      <header class="site-header">
+        <a class="brand" href="#top">stephen lajuwomi</a>
+        <nav aria-label="Prototype navigation">
+          <a class="active" href="#top">about</a>
+          <a href="#projects">projects</a>
+          <a href="#writing">writing</a>
+        </nav>
+        <button class="icon-button" type="button" aria-label="Theme locked to dark" disabled>☼</button>
+        <span class="command-key">⌘ <i>+</i> K</span>
+      </header>
+
+      <section id="top" class="content-stack" aria-labelledby="about-heading">
+        <h1 id="about-heading" class="sr-only">About Stephen Lajuwomi</h1>
+        <div class="diamond-row">
+          <i></i><p>Software Developer <span class="logo-dot">DIG</span> <a href="#">Directors Investment Group</a></p>
+        </div>
+        <div class="diamond-row">
+          <i></i><p>BS in Computer Science <span class="logo-dot">HSU</span> <a href="#">Hardin-Simmons University</a> <span class="muted">(2025)</span></p>
+        </div>
+        <div class="diamond-row">
+          <i></i>
+          <div>
+            <p class="section-label">what i've been building:</p>
+            <ul>
+              <li><a href="#">Cowboy Cards</a> — a flashcard platform built with a 15-person capstone team</li>
+              <li><a href="#">Books4Sale</a> — a CRUD app for browsing and listing used books</li>
+              <li><a href="#">Drake Lyrics Generator</a> — a small GPT-2 model trained to generate lyrics</li>
+            </ul>
+          </div>
+        </div>
+        <div class="diamond-row">
+          <i></i>
+          <div>
+            <p class="section-label">previously:</p>
+            <ul>
+              <li><strong>Software and Data Management Analyst</strong> at GGV International LLC <small>Jun 2025 – Sep 2025</small></li>
+              <li><strong>Web Design Intern</strong> at IKIDI Inc <small>Jul 2022 – Dec 2022</small></li>
+            </ul>
+          </div>
+        </div>
+        <a class="cta" href="#projects">see what i've built <span>▧</span></a>
+        <div class="signature" aria-hidden="true">Stephen</div>
+      </section>
+
+      <section id="projects" class="long-section">
+        <p class="eyebrow">selected work</p>
+        <h2>Small tools, useful systems, and experiments.</h2>
+        <p>This extra content exists to test how the crystalline world behaves through a real scroll. The background should remain composed, quiet, and fixed while the reading surface moves above it.</p>
+        <article>
+          <span>01</span>
+          <div><h3>Cowboy Cards</h3><p>A collaborative flashcard platform for language teachers and students.</p></div>
+        </article>
+        <article>
+          <span>02</span>
+          <div><h3>Books4Sale</h3><p>A focused marketplace exercise in browsing, listing, and CRUD workflows.</p></div>
+        </article>
+      </section>
+
+      <section id="writing" class="long-section">
+        <p class="eyebrow">writing</p>
+        <h2>Notes from building and learning.</h2>
+        <p>The scene should recede while this text is read. Move the pointer to reveal depth, then stop and notice whether the visual field becomes calm again.</p>
+        <blockquote>“The background earns its place only if the words remain effortless to read.”</blockquote>
+      </section>
+
+      <footer>
+        <div><a href="#">github</a><a href="#">linkedin</a><a href="#">email</a></div>
+        <p>© 2026 Stephen Lajuwomi</p>
+      </footer>
+    </main>
+
+    <aside id="controls" class="controls" aria-label="Prototype tuning controls">
+      <button id="controls-toggle" class="controls-toggle" type="button" aria-expanded="false">
+        <span>tune scene</span><b>+</b>
+      </button>
+      <div class="controls-body">
+        <div class="control-heading"><span>live parameters</span><output id="fps">— fps</output></div>
+        <label>Density <output data-output="density">1.00</output><input data-key="density" type="range" min="0.35" max="1.45" step="0.05" value="1" /></label>
+        <label>Center clearing <output data-output="safeZone">1.00</output><input data-key="safeZone" type="range" min="0.7" max="1.5" step="0.05" value="1" /></label>
+        <label>Glow <output data-output="glow">0.85</output><input data-key="glow" type="range" min="0" max="2.5" step="0.05" value="0.85" /></label>
+        <label>Fog <output data-output="fog">0.018</output><input data-key="fog" type="range" min="0.005" max="0.09" step="0.003" value="0.018" /></label>
+        <label>Motion <output data-output="motion">0.55</output><input data-key="motion" type="range" min="0" max="1.5" step="0.05" value="0.55" /></label>
+        <label>Pointer depth <output data-output="pointer">0.45</output><input data-key="pointer" type="range" min="0" max="1.2" step="0.05" value="0.45" /></label>
+        <label>Quality <select id="quality"><option value="auto">auto</option><option value="high">high</option><option value="medium">medium</option><option value="low">low</option></select></label>
+        <div class="control-actions"><button id="new-seed" type="button">new seed</button><button id="reset" type="button">reset</button><button id="pause" type="button">pause</button></div>
+        <button id="copy-config" class="copy-config" type="button">copy configuration</button>
+      </div>
+    </aside>
+
+    <div class="variant-switcher" aria-label="Rendering treatment switcher">
+      <button id="variant-prev" type="button" aria-label="Previous treatment">←</button>
+      <span id="variant-label">A — Crystal</span>
+      <button id="variant-next" type="button" aria-label="Next treatment">→</button>
+    </div>
+
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
