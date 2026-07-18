@@ -549,3 +549,69 @@ The direction is ready only when:
 - bundle loading and route persistence are decided;
 - production integration is explicitly authorized.
 
+## Production Integration — July 18, 2026
+
+The selected Crystal treatment is now integrated into the real portfolio shell. The implementation is a production rewrite, not a copy of the prototype renderer.
+
+### Visual direction
+
+The original electric cyan/magenta palette was replaced because it read as generically AI-generated. The production palette uses:
+
+- deep moss and forest-green structure in dark mode;
+- muted ochre, antique gold, and restrained amber for energy cells;
+- warm near-black instead of blue-black for the dark surface;
+- pale sage, mineral grey-green, and warm stone for light mode;
+- lower bloom and opacity than the prototype, especially in light mode.
+
+The composition remains deterministic and preserves the signature central void. Desktop uses left/right formations. Portrait layouts reject formations from the middle reading band and emphasize the top/bottom edges.
+
+### Production files
+
+- `components/crystalline-background.tsx` is the client boundary. It dynamically imports the renderer, marks the first successful frame, preserves the CSS fallback on failure, and disposes the renderer on unmount.
+- `lib/crystalline-background/composition.ts` owns the deterministic PRNG, cube records, desktop/portrait placement rules, detached cubes, and energy-role assignment.
+- `lib/crystalline-background/renderer.ts` owns Three.js setup, instancing, bloom, particles, quality tiers, theme changes, reduced motion, visibility pausing, responsive rebuilding, context-loss handling, and resource cleanup.
+- `app/layout.tsx` mounts the decorative background once behind the shared portfolio shell so it persists across routes.
+- `app/globals.css` supplies the immediate no-WebGL fallback, stacking context, canvas crossfade, theme surfaces, and reduced-motion transition rule. The old dotted background has been removed.
+- `package.json` adds `three`; development types are supplied by `@types/three`.
+- `eslint.config.mjs` ignores generated `dist` and dependency folders so repository linting evaluates source rather than the prototype build output.
+
+### Lifecycle and accessibility behavior
+
+- The canvas is decorative, pointer-transparent, and never replaces selectable DOM content.
+- WebGL is dynamically loaded after the client mounts.
+- A CSS green/gold atmosphere appears immediately and remains if WebGL startup fails.
+- The canvas fades in only after the renderer reports a successful frame.
+- Theme changes rebuild materials and particles against separate light/dark palettes.
+- Reduced motion renders a stable frame and responds to preference changes at runtime.
+- Rendering pauses while the document is hidden.
+- Named event handlers and Three.js resources are removed by `dispose()`.
+- A fixed seed makes both cube placement and particles stable across reloads.
+- Quality starts from pointer type, viewport/device memory, and pixel ratio, then can step down from measured frame time.
+
+### Important compositor detail
+
+`UnrealBloomPass` does not reliably preserve a transparent alpha channel. A transparent composer therefore produced a black buffer in light mode even though the scene background was `null`. The production renderer deliberately clears to the current theme's surface color with full alpha. This keeps bloom predictable and makes the canvas visually identical to the page surface wherever no geometry is present.
+
+### Verification completed
+
+- `npm run lint`
+- `npx tsc --noEmit`
+- `npm run build`
+- visual inspection in dark and light themes at the default desktop viewport
+- visual inspection at `390 × 844` in dark and light themes
+- live theme switching without renderer failure
+- central reading-lane inspection against real homepage content
+- browser-log inspection with no renderer errors
+
+The browser still reports a pre-existing Next.js warning for `/assets/logos/hsu-logo.png` because CSS changes only one image dimension. It is unrelated to the background integration.
+
+### Remaining next steps
+
+1. Inspect `/projects`, `/writing`, and a long `/writing/[slug]` page at desktop and mobile sizes.
+2. Test Safari and Firefox, with particular attention to bloom, WebGL context restoration, and fixed-canvas scrolling.
+3. Test at least one physical iPhone and one lower-power Android device for thermals and sustained frame time.
+4. Add unit tests for seed determinism and portrait safe-zone rejection.
+5. Add screenshot baselines for the four validated theme/viewport combinations.
+6. Consider a prerendered AVIF fallback if physical-device testing shows the live canvas is too expensive.
+7. Fix the separate HSU logo aspect-ratio warning.
+8. Revisit density and gold intensity only after judging the background behind the longest article; avoid increasing saturation before that route-wide check.
