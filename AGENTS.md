@@ -1,0 +1,1 @@
+make commits after each significant change so that the history is clear and easy to understand. make commits in mitchell hashimoto style.
