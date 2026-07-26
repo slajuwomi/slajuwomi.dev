@@ -11,11 +11,11 @@
 }
 
 html {
-  background: #000000;
+  background: #f1f0e8;
 }
 
 html.dark {
-  background: #000000;
+  background: #030303;
 }
 
 body {
@@ -40,13 +40,13 @@ a {
   min-height: 100dvh;
   justify-content: center;
   overflow: clip;
-  background-color: #000000;
+  background-color: #f1f0e8;
   color: #737373;
   font-weight: 200;
 }
 
 .dark .site-canvas {
-  background-color: #000000;
+  background-color: #030303;
   color: #a4aaa3;
 }
 
@@ -69,6 +69,10 @@ a {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
+  background-color: #f1f0e8;
+}
+
+.dark .liquid-ether-background {
   background-color: #000000;
 }
 
