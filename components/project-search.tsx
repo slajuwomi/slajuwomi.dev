@@ -49,9 +49,9 @@ export function ProjectSearch({ projects }: { projects: readonly Project[] }) {
           {filteredProjects.map((project) => (
             <article
               key={project.slug}
-              className="group overflow-hidden rounded-lg bg-neutral-100 shadow-md transition-shadow hover:shadow-lg dark:bg-neutral-900"
+              className="overflow-hidden rounded-lg bg-neutral-100 shadow-md dark:bg-neutral-900"
             >
-              <div className="relative h-[250px] overflow-hidden transition-[height] duration-500 group-hover:h-[275px]">
+              <div className="relative h-[250px] overflow-hidden">
                 <Image
                   src={project.image ?? "/assets/project-media-pending.svg"}
                   alt={
@@ -75,7 +75,7 @@ export function ProjectSearch({ projects }: { projects: readonly Project[] }) {
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label={`View ${project.name} source code`}
-                    className="rounded-md p-1 text-stone-500 transition-transform hover:scale-110 hover:text-stone-800 dark:hover:text-stone-200"
+                    className="rounded-md p-1 text-stone-500"
                   >
                     <GitFork size={19} strokeWidth={1.5} />
                   </a>
@@ -85,7 +85,7 @@ export function ProjectSearch({ projects }: { projects: readonly Project[] }) {
                       target="_blank"
                       rel="noopener noreferrer"
                       aria-label={`Open ${project.name} demo`}
-                      className="rounded-md p-1 text-stone-500 transition-transform hover:scale-110 hover:text-stone-800 dark:hover:text-stone-200"
+                      className="rounded-md p-1 text-stone-500"
                     >
                       <ExternalLink size={19} strokeWidth={1.5} />
                     </a>

@@ -88,7 +88,7 @@ export default function Home() {
 
       <Link
         href="/projects"
-        className="flex items-center justify-center gap-2 rounded-lg border border-stone-400 bg-stone-50 px-6 py-4 text-center text-stone-600 shadow-sm transition-transform hover:scale-[1.02] active:scale-[0.98] dark:border-stone-600 dark:bg-stone-900 dark:text-stone-400"
+        className="flex items-center justify-center gap-2 rounded-lg border border-stone-400 bg-stone-50 px-6 py-4 text-center text-stone-600 shadow-sm dark:border-stone-600 dark:bg-stone-900 dark:text-stone-400"
       >
         see what i&apos;ve built
         <GalleryHorizontalEnd size={17} strokeWidth={1.5} />
@@ -101,10 +101,10 @@ export default function Home() {
 
 function DiamondRow({ children }: { children: React.ReactNode }) {
   return (
-    <div className="group flex items-start gap-4 transition-transform duration-200 hover:translate-x-1">
+    <div className="flex items-start gap-4">
       <span
         aria-hidden="true"
-        className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-stone-800 transition-transform duration-200 group-hover:rotate-90 group-hover:scale-110 dark:bg-stone-200"
+        className="mt-2.5 h-1.5 w-1.5 shrink-0 rotate-45 bg-stone-800 dark:bg-stone-200"
       />
       <div className="min-w-0 flex-1">{children}</div>
     </div>
@@ -123,7 +123,7 @@ function ExternalTextLink({
       href={href}
       target="_blank"
       rel="noopener noreferrer"
-      className="sweep-link font-medium text-stone-700 transition-colors hover:text-stone-900 dark:text-stone-300 dark:hover:text-stone-100"
+      className="sweep-link font-medium text-stone-700 dark:text-stone-300"
     >
       {children}
     </a>

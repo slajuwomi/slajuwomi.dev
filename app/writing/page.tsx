@@ -36,9 +36,9 @@ export default function WritingPage() {
             <li key={post.slug}>
               <Link
                 href={`/writing/${post.slug}`}
-                className="group flex items-baseline gap-4 rounded-md py-1 transition-transform hover:translate-x-1"
+                className="flex items-baseline gap-4 rounded-md py-1"
               >
-                <span className="font-medium text-stone-800 group-hover:underline group-hover:underline-offset-4 dark:text-stone-200">
+                <span className="font-medium text-stone-800 underline-offset-4 dark:text-stone-200">
                   {post.title}
                 </span>
                 <time className="ml-auto shrink-0 text-xs text-stone-500">
