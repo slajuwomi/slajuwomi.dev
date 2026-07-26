@@ -3,14 +3,14 @@
 import LiquidEther from "@/components/liquid-ether";
 
 /**
- * React Bits Liquid Ether, mounted like Ch3mson/personal-portfolio-v3
- * with a calming blue palette and their quieter motion settings.
+ * React Bits Liquid Ether, mounted like Ch3mson/personal-portfolio-v3.
+ * Black base with muted blue only in the flowing velocity field.
  */
 export function LiquidEtherBackground() {
   return (
     <div className="liquid-ether-background" aria-hidden="true">
       <LiquidEther
-        colors={["#A8C8D8", "#6B9BB0", "#1A2832"]}
+        colors={["#4A90B8", "#2C5F7A", "#000000"]}
         mouseForce={20}
         cursorSize={100}
         autoDemo
