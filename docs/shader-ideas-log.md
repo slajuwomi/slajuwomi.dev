@@ -237,3 +237,18 @@ Yes—the composition is viable. Dense edge-anchored voxel walls surround a genu
 6. Establish production bundle and GPU budgets.
 7. Rewrite with seeded particles, full cleanup, context-loss recovery, adaptive quality, and a static fallback.
 8. Design light mode as a separate visual language rather than an inversion.
+
+## Exploration — Paper Design Grain Gradient (2026-07-26)
+
+**Status:** Saved demo on `demo/grain-gradient-background` — not for production merge.
+
+Local A/B of `@paper-design/shaders-react` Grain Gradient against the crystalline Three.js background. Crystalline code stayed intact; only the root layout mount changed on the demo branch.
+
+Path taken:
+
+1. **Corners** with a maroon-to-light ring palette — striking but too bright for body copy.
+2. Exposure passes (darken / opacity) — easy to overshoot into “almost invisible.”
+3. **Wave** with rotation `232` and a maroon remapping of the Paper warm preset — better motion; pale rose band still killed contrast.
+4. Final readable state: darker three-stop maroon ramp + `rgb(0 0 0 / 45%)` scrim; text colors unchanged.
+
+Full write-up: [`docs/grain-gradient-demo-path.md`](./grain-gradient-demo-path.md).
