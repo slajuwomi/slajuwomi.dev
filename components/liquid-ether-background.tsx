@@ -7,17 +7,17 @@ export function LiquidEtherBackground() {
   return (
     <div className="liquid-ether-background" aria-hidden="true">
       <LiquidEther
-        colors={["#0A2E4A", "#1B6B8A", "#4AA8C8"]}
-        mouseForce={18}
-        cursorSize={110}
+        colors={["#1A6FA8", "#4EB3E0", "#B8E6F8"]}
+        mouseForce={22}
+        cursorSize={140}
         isViscous={false}
-        resolution={0.5}
+        resolution={0.55}
         autoDemo
-        autoSpeed={0.4}
-        autoIntensity={1.8}
+        autoSpeed={0.5}
+        autoIntensity={2.4}
         takeoverDuration={0.25}
-        autoResumeDelay={1200}
-        autoRampDuration={0.6}
+        autoResumeDelay={900}
+        autoRampDuration={0.5}
         style={{ width: "100%", height: "100%" }}
       />
     </div>

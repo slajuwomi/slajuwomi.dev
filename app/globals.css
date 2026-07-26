@@ -40,13 +40,13 @@ a {
   min-height: 100dvh;
   justify-content: center;
   overflow: clip;
-  background-color: #f1f0e8;
+  background-color: #0a2744;
   color: #737373;
   font-weight: 200;
 }
 
 .dark .site-canvas {
-  background-color: #030303;
+  background-color: #0a2744;
   color: #a4aaa3;
 }
 
@@ -69,14 +69,14 @@ a {
   inset: 0;
   overflow: hidden;
   pointer-events: none;
-  background-color: #030a12;
+  background-color: #0a2744;
 }
 
 .liquid-ether-background::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgb(3 10 18 / 35%);
+  background: rgb(8 28 52 / 12%);
   pointer-events: none;
 }
 
