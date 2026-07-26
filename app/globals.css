@@ -72,6 +72,13 @@ a {
   background-color: #000000;
 }
 
+.grain-gradient-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(0 0 0 / 45%);
+}
+
 .dark .crystalline-background {
   background:
     radial-gradient(ellipse at 4% 16%, rgb(79 110 72 / 12%), transparent 28%),

@@ -7,8 +7,8 @@ export function GrainGradientBackground() {
   return (
     <div className="grain-gradient-background" aria-hidden="true">
       <GrainGradient
-        colorBack="#0a0508"
-        colors={["#8b1a28", "#a85860", "#d4a8a8"]}
+        colorBack="#050203"
+        colors={["#4a1018", "#6b2430", "#7e3844"]}
         shape="wave"
         softness={0.7}
         intensity={0.15}
@@ -16,7 +16,7 @@ export function GrainGradientBackground() {
         speed={0.94}
         scale={1}
         rotation={232}
-        style={{ width: "100%", height: "100%", opacity: 0.8 }}
+        style={{ width: "100%", height: "100%" }}
       />
     </div>
   );
