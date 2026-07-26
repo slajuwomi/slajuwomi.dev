@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
-import { CrystallineBackground } from "@/components/crystalline-background";
+import { GrainGradientBackground } from "@/components/grain-gradient-background";
 import { SiteChrome } from "@/components/site-chrome";
 import "./globals.css";
 
@@ -79,7 +79,7 @@ export default function RootLayout({
       </head>
       <body className={`${GeistSans.className} min-h-full antialiased`}>
         <main className="site-canvas">
-          <CrystallineBackground />
+          <GrainGradientBackground />
           <div className="site-column">
             <SiteChrome>{children}</SiteChrome>
           </div>
