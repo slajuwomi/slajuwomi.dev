@@ -237,3 +237,19 @@ Yes—the composition is viable. Dense edge-anchored voxel walls surround a genu
 6. Establish production bundle and GPU budgets.
 7. Rewrite with seeded particles, full cleanup, context-loss recovery, adaptive quality, and a static fallback.
 8. Design light mode as a separate visual language rather than an inversion.
+
+## Exploration — React Bits Liquid Ether (2026-07-26)
+
+**Status:** Saved demo on `demo/liquid-ether-background` — not for production merge.
+
+Local A/B of React Bits Liquid Ether (vendored via Ch3mson/personal-portfolio-v3 patterns) against the crystalline Three.js background. Crystalline code stayed intact; only the root layout mount changed on the demo branch.
+
+Path taken:
+
+1. **Calming blues** — early dark blues washed the viewport into solid navy; brightening helped at the cost of aggression.
+2. **Ch3mson mount settings** — quieter `autoSpeed` / `autoIntensity`, `pointer-events-none` mount; removed site hover transforms that fought mouse tracking; restored `main` light/dark text tokens.
+3. **Black base** — ending the palette toward black (and a black dark host) recovered “black with color flow” instead of a solid color field.
+4. **Viscous blue preview** — `#1730fd` / `#00d7ff` / `#561dfa` with viscosity on.
+5. **Final saved state** — viscous gold `#cc9b03` / `#ffd85d` / `#9a9000` with `autoSpeed: 1.2`, `autoIntensity: 4.3`.
+
+Full write-up: [`docs/liquid-ether-demo-path.md`](./liquid-ether-demo-path.md).
