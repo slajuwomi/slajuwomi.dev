@@ -63,6 +63,31 @@ a {
     radial-gradient(ellipse at 98% 76%, rgb(92 118 76 / 10%), transparent 26%);
 }
 
+.liquid-ether-background {
+  position: fixed;
+  z-index: 0;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  background-color: #030a12;
+}
+
+.liquid-ether-background::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgb(3 10 18 / 35%);
+  pointer-events: none;
+}
+
+.liquid-ether-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  touch-action: none;
+}
+
 .dark .crystalline-background {
   background:
     radial-gradient(ellipse at 4% 16%, rgb(79 110 72 / 12%), transparent 28%),
