@@ -46,10 +46,11 @@ export function ProjectSearch({ projects }: { projects: readonly Project[] }) {
         </div>
       ) : (
         <div className="space-y-7">
-          {filteredProjects.map((project) => (
+          {filteredProjects.map((project, index) => (
             <article
               key={project.slug}
-              className="overflow-hidden rounded-lg bg-neutral-100 shadow-md dark:bg-neutral-900"
+              className="project-card overflow-hidden rounded-lg bg-neutral-100 shadow-md dark:bg-neutral-900"
+              style={{ animationDelay: `${Math.min(index, 6) * 55}ms` }}
             >
               <div className="relative h-[250px] overflow-hidden">
                 <Image

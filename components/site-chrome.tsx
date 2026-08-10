@@ -163,7 +163,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
         </button>
       </header>
 
-      <div className="pt-8">{children}</div>
+      <div className="site-route pt-8" key={pathname}>{children}</div>
 
       <footer className="mt-4 flex flex-col gap-4 border-t border-stone-200 pt-4 text-xs text-stone-500 dark:border-stone-800">
         <div className="flex items-center gap-4">
@@ -185,10 +185,10 @@ export function SiteChrome({ children }: { children: ReactNode }) {
 
       <Dialog.Root open={paletteOpen} onOpenChange={setPaletteOpen}>
         <Dialog.Portal>
-          <Dialog.Overlay className="fixed inset-0 bg-black/50" />
+          <Dialog.Overlay className="palette-overlay fixed inset-0 bg-black/50" />
           <Dialog.Content
             aria-describedby={undefined}
-            className="fixed top-[18%] left-1/2 hidden w-[calc(100%-2rem)] max-w-[500px] -translate-x-1/2 overflow-hidden rounded-xl border border-stone-200 bg-stone-50 shadow-xl md:block dark:border-stone-700 dark:bg-neutral-900"
+            className="palette-content fixed top-[18%] left-1/2 hidden w-[calc(100%-2rem)] max-w-[500px] -translate-x-1/2 overflow-hidden rounded-xl border border-stone-200 bg-stone-50 shadow-xl md:block dark:border-stone-700 dark:bg-neutral-900"
           >
             <Dialog.Title className="sr-only">Command palette</Dialog.Title>
             <Dialog.Close className="absolute top-3 right-3 rounded-md p-1 text-stone-500">
