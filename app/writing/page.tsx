@@ -29,30 +29,26 @@ export default function WritingPage() {
 
   return (
     <div className="page-stack">
-      <section>
+      <section className="work-block">
         <h1 className="page-title">Writing</h1>
-        <p className="lede">
-          Short pieces on shipping software and staying in control of the work.
-        </p>
+        {posts.length === 0 ? (
+          <p className="empty-note">Nothing published yet.</p>
+        ) : (
+          <ol className="writing-list">
+            {posts.map((post) => (
+              <li key={post.slug} className="writing-item">
+                <Link href={`/writing/${post.slug}`}>
+                  {post.date ? <div className="meta">{formatDate(post.date)}</div> : null}
+                  <div className="item-title">{post.title}</div>
+                  {post.description ? (
+                    <p className="item-excerpt">{post.description}</p>
+                  ) : null}
+                </Link>
+              </li>
+            ))}
+          </ol>
+        )}
       </section>
-
-      {posts.length === 0 ? (
-        <p className="empty-note">Nothing published yet.</p>
-      ) : (
-        <ol className="writing-list">
-          {posts.map((post) => (
-            <li key={post.slug} className="writing-item">
-              <Link href={`/writing/${post.slug}`}>
-                {post.date ? <div className="meta">{formatDate(post.date)}</div> : null}
-                <div className="item-title">{post.title}</div>
-                {post.description ? (
-                  <p className="item-excerpt">{post.description}</p>
-                ) : null}
-              </Link>
-            </li>
-          ))}
-        </ol>
-      )}
     </div>
   );
 }

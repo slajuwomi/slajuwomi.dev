@@ -112,12 +112,55 @@ button:focus-visible {
   color: var(--color-accent);
 }
 
-.bio,
-.lede {
+.fact-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-lg);
   margin: 0;
-  font-size: var(--text-body);
-  font-weight: 400;
-  line-height: var(--leading-body);
+  padding: 0;
+  list-style: none;
+}
+
+.fact-row {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-md);
+}
+
+.fact-mark {
+  width: 6px;
+  height: 6px;
+  margin-top: 7px;
+  flex-shrink: 0;
+  background: var(--color-ink);
+  transform: rotate(45deg);
+}
+
+.fact-body {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-xs);
+  min-width: 0;
+  font-size: var(--text-md);
+  line-height: var(--leading-tight);
+}
+
+.fact-logo {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  object-fit: contain;
+}
+
+.fact-link {
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.fact-year {
+  color: var(--color-muted);
 }
 
 .page-title {
@@ -161,6 +204,7 @@ button:focus-visible {
 .item-copy {
   margin: 0;
   font-size: var(--text-md);
+  font-weight: 400;
   line-height: var(--leading-tight);
   color: var(--color-ink);
 }
