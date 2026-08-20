@@ -13,7 +13,6 @@ export default function Home() {
 
       <ul className="fact-list">
         <li className="fact-row">
-          <span className="fact-mark" aria-hidden="true" />
           <div className="fact-body">
             <span>{currentRole.role}</span>
             <Image
@@ -34,7 +33,6 @@ export default function Home() {
           </div>
         </li>
         <li className="fact-row">
-          <span className="fact-mark" aria-hidden="true" />
           <div className="fact-body">
             <span>{education.degree}</span>
             <Image

@@ -113,27 +113,17 @@ button:focus-visible {
 }
 
 .fact-list {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
   margin: 0;
-  padding: 0;
-  list-style: none;
+  padding: 0 0 0 1.15em;
+  list-style: disc;
 }
 
-.fact-row {
-  display: flex;
-  align-items: flex-start;
-  gap: var(--space-md);
+.fact-row + .fact-row {
+  margin-top: var(--space-lg);
 }
 
-.fact-mark {
-  width: 6px;
-  height: 6px;
-  margin-top: 7px;
-  flex-shrink: 0;
-  background: var(--color-ink);
-  transform: rotate(45deg);
+.fact-row::marker {
+  color: var(--color-ink);
 }
 
 .fact-body {
