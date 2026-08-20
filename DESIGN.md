@@ -50,7 +50,7 @@ Single face: Roboto Mono, weights 400 and 700. No serif, no sans.
 | --- | --- | --- | --- | --- | --- |
 | Site name | 14px | 400 | 20px | ink | Title case |
 | Nav | 14px | 700 | 20px | ink; accent when current | Title case |
-| Page title (Work, Writing) | 22px | 700 | 28px | accent | Title case |
+| Page title (Projects, Writing) | 22px | 700 | 28px | accent | Title case |
 | Product / post title | 16px | 700 | 22px | ink | Title case |
 | Body / bio | 15px | 400 | 26px | ink | Sentence case |
 | Meta / date | 12px | 400 | 16px | accent | as written |
@@ -73,7 +73,7 @@ labels stay short and readable — never `001_index` or `FIELD_REF_BLOCK`.
 **Header.** Name left, About / Writing right. Current route uses accent.
 No underline, no border, no icons.
 
-**Work row.** Stacked: product name, then one-line description. Name is a
+**Project row.** Stacked: product name, then one-line description. Name is a
 text link if the project has a URL. Spacing, not rules, separates rows.
 
 **Writing row.** Date in accent, title in ink, optional one-line excerpt

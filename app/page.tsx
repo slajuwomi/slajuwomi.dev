@@ -13,7 +13,7 @@ export default function Home() {
       </section>
 
       <section className="work-block">
-        <h1 className="page-title">Work</h1>
+        <h1 className="page-title">Projects</h1>
         {projects.length === 0 ? (
           <p className="empty-note">Nothing listed yet.</p>
         ) : (
