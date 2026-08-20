@@ -14,6 +14,7 @@ const footerLinks = [
   { label: "GitHub", href: site.social.github },
   { label: "LinkedIn", href: site.social.linkedin },
   { label: "X", href: site.social.twitter },
+  { label: "YouTube", href: site.social.youtube },
 ] as const;
 
 function isCurrent(pathname: string, href: string) {

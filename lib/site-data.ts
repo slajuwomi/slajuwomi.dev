@@ -9,6 +9,7 @@ export const site = {
     github: "https://github.com/slajuwomi",
     linkedin: "https://www.linkedin.com/in/stephenlajuwomi/",
     twitter: "https://x.com/stephenlearns",
+    youtube: "https://www.youtube.com/@stephenlearns",
   },
 } as const;
 
