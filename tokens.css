@@ -1,0 +1,55 @@
+/* Hallmark · macrostructure: Night Ledger · tone: utilitarian
+ * theme: custom (vibe: "dark terminal ledger")
+ * axes: dark / mono / warm amber
+ * studied: yes · DNA-source: Paper Night Ledger prototypes
+ */
+
+:root {
+  --color-paper: #282828;
+  --color-paper-2: #32302f;
+  --color-ink: #ebdbb2;
+  --color-ink-2: #d5c4a1;
+  --color-muted: #a89984;
+  --color-accent: #d79921;
+  --color-accent-ink: #282828;
+  --color-focus: #d79921;
+
+  --font-display: "Roboto Mono", ui-monospace, monospace;
+  --font-body: "Roboto Mono", ui-monospace, monospace;
+  --font-mono: "Roboto Mono", ui-monospace, monospace;
+
+  --text-xs: 12px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 22px;
+  --text-2xl: 28px;
+  --text-body: 15px;
+
+  --leading-tight: 20px;
+  --leading-body: 26px;
+  --leading-title: 30px;
+
+  --space-2xs: 4px;
+  --space-xs: 8px;
+  --space-sm: 12px;
+  --space-md: 16px;
+  --space-lg: 20px;
+  --space-xl: 40px;
+  --space-2xl: 48px;
+  --space-3xl: 64px;
+
+  --container-page: 720px;
+
+  --radius-card: 0;
+  --radius-pill: 0;
+  --radius-input: 0;
+  --radius-none: 0;
+
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 180ms;
+  --dur-base: 240ms;
+  --dur-slow: 320ms;
+
+  --img-filter: grayscale(100%) contrast(1.1) sepia(0.2) invert(0.9);
+}

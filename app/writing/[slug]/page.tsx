@@ -27,6 +27,23 @@ export async function generateMetadata({
   };
 }
 
+function formatDate(value: string) {
+  if (!value) {
+    return "";
+  }
+
+  const parsed = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(parsed.getTime())) {
+    return value;
+  }
+
+  return parsed.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 export default async function PostPage({ params }: PostPageProps) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
@@ -36,15 +53,14 @@ export default async function PostPage({ params }: PostPageProps) {
   }
 
   return (
-    <article className="prose">
-      <header className="mb-8">
-        <h1>{post.title}</h1>
-        {post.date ? (
-          <time className="text-sm text-stone-500">{post.date}</time>
-        ) : null}
+    <article className="page-stack">
+      <header>
+        {post.date ? <p className="meta">{formatDate(post.date)}</p> : null}
+        <h1 className="post-title">{post.title}</h1>
       </header>
-      {/* MDX stays server-rendered and can be extended with safe components later. */}
-      <MDXRemote source={post.content} />
+      <div className="prose">
+        <MDXRemote source={post.content} />
+      </div>
     </article>
   );
 }

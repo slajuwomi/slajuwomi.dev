@@ -7,48 +7,52 @@ export const metadata: Metadata = {
   description: "Notes and longer-form writing by Stephen Lajuwomi.",
 };
 
+function formatDate(value: string) {
+  if (!value) {
+    return "";
+  }
+
+  const parsed = new Date(`${value}T00:00:00`);
+  if (Number.isNaN(parsed.getTime())) {
+    return value;
+  }
+
+  return parsed.toLocaleDateString("en-GB", {
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+  });
+}
+
 export default function WritingPage() {
   const posts = getAllPosts();
 
   return (
-    <section className="space-y-6">
-      <div className="space-y-2">
-        <h1 className="text-2xl font-medium text-stone-800 dark:text-stone-200">
-          writing
-        </h1>
-        <p className="text-sm text-stone-600 dark:text-stone-400">
-          notes on software, learning, and the work in between.
+    <div className="page-stack">
+      <section>
+        <h1 className="page-title">Writing</h1>
+        <p className="lede">
+          Short pieces on shipping software and staying in control of the work.
         </p>
-      </div>
+      </section>
 
       {posts.length === 0 ? (
-        <div className="rounded-lg border border-dashed border-stone-300 px-5 py-10 text-center dark:border-stone-700">
-          <p className="font-medium text-stone-700 dark:text-stone-300">
-            nothing published yet.
-          </p>
-          <p className="mt-1 text-sm text-stone-500">
-            posts will show up here when they are ready.
-          </p>
-        </div>
+        <p className="empty-note">Nothing published yet.</p>
       ) : (
-        <ol className="space-y-4">
+        <ol className="writing-list">
           {posts.map((post) => (
-            <li key={post.slug}>
-              <Link
-                href={`/writing/${post.slug}`}
-                className="group flex items-baseline gap-4 rounded-md py-1 transition-transform hover:translate-x-1"
-              >
-                <span className="font-medium text-stone-800 group-hover:underline group-hover:underline-offset-4 dark:text-stone-200">
-                  {post.title}
-                </span>
-                <time className="ml-auto shrink-0 text-xs text-stone-500">
-                  {post.date}
-                </time>
+            <li key={post.slug} className="writing-item">
+              <Link href={`/writing/${post.slug}`}>
+                {post.date ? <div className="meta">{formatDate(post.date)}</div> : null}
+                <div className="item-title">{post.title}</div>
+                {post.description ? (
+                  <p className="item-excerpt">{post.description}</p>
+                ) : null}
               </Link>
             </li>
           ))}
         </ol>
       )}
-    </section>
+    </div>
   );
 }

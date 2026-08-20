@@ -159,7 +159,7 @@ export function Signature() {
         onClick={replay}
         aria-label="Replay signature animation"
         title="Replay signature"
-        className="rounded-md p-1.5 text-stone-500 transition-transform hover:scale-110 hover:text-stone-800 active:scale-95 dark:hover:text-stone-200"
+        className="rounded-md p-1.5 text-stone-500"
       >
         <RotateCcw size={14} strokeWidth={1.5} />
       </button>
