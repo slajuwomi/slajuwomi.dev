@@ -12,6 +12,11 @@ const nextConfig: NextConfig = {
   async redirects() {
     return [
       {
+        source: "/projects",
+        destination: "/",
+        permanent: true,
+      },
+      {
         source: "/productivity",
         destination: "https://productivity.slajuwomi.dev/",
         permanent: true,
