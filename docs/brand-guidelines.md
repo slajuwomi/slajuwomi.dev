@@ -1,5 +1,7 @@
 # Brand Guidelines
 
+> Historical. The locked production system is Night Ledger in [`DESIGN.md`](../DESIGN.md) and `tokens.css`. This file records the earlier archival-dossier extraction. Do not implement from it.
+
 S.SYSTEMS // DEV_LOG_2024
 
 Production-ready brand guidelines extracted from the design code.
