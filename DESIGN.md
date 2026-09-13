@@ -63,7 +63,10 @@ labels stay short and readable — never `001_index` or `FIELD_REF_BLOCK`.
 ## Layout
 
 - Page measure: 720px, centered.
-- Viewport: dark paper, no texture, no WebGL.
+- Viewport: dark paper, no persistent full-page texture or WebGL scene.
+- Decorative exception: restrained raw-WebGL2 “ledger tide” bands may sit behind
+  the header and footer. They must not enter the central reading area, and the
+  page must remain complete when they are unavailable.
 - Vertical rhythm: 48px between major blocks; 20px inside a list row.
 - No box borders. No hairline rules under the header or above the footer.
 - No corner marks, no top accent bar, no theme switcher chrome.
@@ -91,6 +94,10 @@ No other chrome.
 
 - Route change: 240ms opacity + 5px translateY. Transform and opacity only.
 - Reduced motion: 150ms opacity crossfade, no translation.
+- Ledger tide: decorative only; 30fps maximum on desktop and 20fps on coarse
+  pointers, low-power GPU preference, capped DPR, and reduced mobile render
+  scale. Pause while off-screen or while the tab is hidden. Do not initialize
+  it under `prefers-reduced-motion: reduce`; hide it in forced-colors mode.
 - No hover elevation, no shadows, no card lifts.
 
 ## Imagery

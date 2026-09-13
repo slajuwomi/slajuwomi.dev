@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
+import { LedgerTide } from "@/components/ledger-tide";
 import { site } from "@/lib/site-data";
 
 const navigation = [
@@ -27,6 +28,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
   return (
     <>
       <header className="site-header">
+        <LedgerTide placement="header" />
         <Link href="/" className="site-name">
           Stephen Lajuwomi
         </Link>
@@ -47,6 +49,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
       <div className="site-route">{children}</div>
 
       <footer className="site-footer">
+        <LedgerTide placement="footer" />
         {footerLinks.map((item) => (
           <a
             key={item.label}
