@@ -26,20 +26,20 @@ export default function RootLayout({
   return (
     <html lang="en" className="h-full">
       <head>
-        <link rel="icon" href="/favicon/dark/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon/portrait/favicon.ico" sizes="any" />
         <link
           rel="icon"
           type="image/png"
           sizes="16x16"
-          href="/favicon/dark/favicon-16x16.png"
+          href="/favicon/portrait/favicon-16x16.png"
         />
         <link
           rel="icon"
           type="image/png"
           sizes="32x32"
-          href="/favicon/dark/favicon-32x32.png"
+          href="/favicon/portrait/favicon-32x32.png"
         />
-        <link rel="apple-touch-icon" href="/favicon/dark/apple-touch-icon.png" />
+        <link rel="apple-touch-icon" href="/favicon/portrait/apple-touch-icon.png" />
       </head>
       <body className={`${robotoMono.className} min-h-full antialiased`}>
         <main className="site-canvas">
