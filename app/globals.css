@@ -217,6 +217,17 @@ button:focus-visible {
   line-height: var(--leading-tight);
 }
 
+.writing-item a .item-title {
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 3px;
+}
+
+.writing-item a:hover .item-title,
+.writing-item a:focus-visible .item-title {
+  color: var(--color-accent);
+}
+
 .item-copy {
   margin: 0;
   font-size: var(--text-md);
