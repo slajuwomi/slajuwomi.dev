@@ -70,10 +70,12 @@ labels stay short and readable — never `001_index` or `FIELD_REF_BLOCK`.
   The page must remain complete when they are unavailable.
 - Production uses 180px Perlin noise bands: gold islands on page charcoal,
   with an irregular retreat toward the content and a vertically mirrored footer.
-  The approved `/shader-picker.html` selection is speed 0.9, contrast 0.8,
+  The approved shader-picker selection is speed 0.9, contrast 0.8,
   density 4, proportion 0.42, softness 0.11, octaveCount 3, persistence 0.5,
   lacunarity 2, scale 1, rotation 127, retreat 0.4; colors #282828 / #fabd2f.
-  The picker remains available for exploration; older shader experiments are unmounted.
+  The picker is preserved on branch `prototype/shader-picker` at
+  `public/shader-picker.html`, not served in production. Older shader experiments
+  are unmounted.
 - Vertical rhythm: 48px between major blocks; 20px inside a list row.
 - No box borders. No hairline rules under the header or above the footer.
 - No corner marks, no top accent bar, no theme switcher chrome.

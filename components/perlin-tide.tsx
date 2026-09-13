@@ -8,7 +8,7 @@ out vec2 uv;
 void main() { uv = position * .5 + .5; gl_Position = vec4(position, 0., 1.); }
 `;
 
-// Selected in /shader-picker.html: speed .9, contrast .8, density 4,
+// Selected in prototype/shader-picker's picker: speed .9, contrast .8, density 4,
 // proportion .42, softness .11, octaves 3, persistence .5, lacunarity 2,
 // scale 1, rotation 127 degrees, retreat .4. Colors: #282828 / #fabd2f.
 const fragmentSource = `#version 300 es
