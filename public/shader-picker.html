@@ -5,6 +5,7 @@
 <title>Shader studies — Stephen Lajuwomi</title>
 <style>
 *{box-sizing:border-box}body{margin:0;background:#282828;color:#ebdbb2;font:14px/1.65 ui-monospace,SFMono-Regular,Consolas,monospace}canvas{display:block;width:100%;height:180px;background:#282828}main{max-width:760px;margin:auto;padding:40px 20px 80px}nav{display:flex;justify-content:space-between;gap:24px;margin-bottom:64px}a,h2{color:#fabd2f}h1{font-size:26px;line-height:1.3}h2{font-size:18px}p{max-width:65ch}.muted{color:#a89984}.picker{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:28px 0}button,select{font:inherit;background:#32302f;color:#ebdbb2;border:1px solid #665c54;padding:12px;cursor:pointer;text-align:left}button[aria-pressed=true]{border-color:#fabd2f;background:#3c3836;color:#fabd2f}button small{display:block;color:#a89984;margin-top:6px}button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid #fabd2f;outline-offset:4px}.controls{display:flex;flex-wrap:wrap;gap:20px;align-items:center;border-block:1px solid #504945;padding:20px 0}label{display:flex;gap:10px;align-items:center}input{accent-color:#fabd2f;width:100px}#status{font-size:12px;color:#a89984;min-height:2em}article{margin-top:48px}footer{margin-top:64px;color:#a89984}@media(max-width:550px){.picker{grid-template-columns:1fr}nav{margin-bottom:40px}canvas{height:150px}}
+.perlin-controls{margin:24px 0;padding:20px;border:1px solid #504945}.perlin-controls[hidden]{display:none}.perlin-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}.perlin-grid label{display:grid;grid-template-columns:110px 1fr 42px;gap:8px}.perlin-grid input{width:100%;min-width:0}.perlin-grid output{text-align:right;color:#fabd2f}.perlin-controls legend{color:#fabd2f}.perlin-controls p{font-size:12px;color:#a89984}
 </style>
 <canvas id="shader" aria-hidden="true"></canvas>
 <main>
@@ -15,7 +16,7 @@
 <div class="picker" role="group" aria-label="Shader direction">
 <button data-mode="0" aria-pressed="true">01 / Organic ink<small>Armin-like merging silhouettes</small></button>
 <button data-mode="1" aria-pressed="false">02 / Contour current<small>Nested lines in a moving field</small></button>
-<button data-mode="2" aria-pressed="false">03 / Perlin noise<small>Soft charcoal and gold cloud fields</small></button>
+<button data-mode="2" aria-pressed="false">03 / Perlin noise<small>Fine gold islands on charcoal</small></button>
 </div>
 <p id="description">A fresh approximation of the reference’s organic, two-tone blobs—not its original shader source. Ochre and gold replace the blues.</p>
 <div class="controls">
@@ -24,6 +25,7 @@
 <label>Contrast <input id="contrast" type="range" min="0.25" max="1" step="0.05" value="0.8"></label>
 <label>Band <select id="height"><option value="120">120px</option><option value="180" selected>180px</option><option value="240">240px</option></select></label>
 </div>
+<fieldset id="perlinControls" class="perlin-controls" hidden><legend>Perlin noise</legend><div id="perlinGrid" class="perlin-grid"></div><p>Density makes shapes smaller; proportion adds more gold. Octaves add detail; persistence and lacunarity affect those extra layers. Edge retreat dissolves shapes into the page’s matching charcoal background. These controls approximate the reference, not its exact parameter mapping.</p></fieldset>
 <p id="status" role="status">Starting WebGL2…</p>
 <button id="copy">Copy this direction’s settings</button>
 <article><h2>Projects</h2><h3>Cowboy Cards</h3><p>A flashcard platform for language teachers, built as a 15-person senior capstone project.</p><h3>Books4Sale</h3><p>A CRUD web app for browsing and listing used books.</p><h2>Previously</h2><p>Software and Data Management Analyst at GGV International LLC</p><p class="muted">The text stays still. Only the sky above it changes.</p></article>
@@ -32,10 +34,28 @@
 <script>
 const canvas=document.querySelector('canvas'),status=document.querySelector('#status');
 const reduced=matchMedia('(prefers-reduced-motion: reduce)');
-const descriptions=["A fresh approximation of the reference’s organic, two-tone blobs—not its original shader source. Ochre and gold replace the blues.","Topographic ribbons bend and drift across a dark field. Fine gold contours give the motion a more graphic, editorial character.","Animated 3D gradient Perlin noise inspired by Paper’s Perlin Noise study. Broad Gruvbox charcoal and gold regions morph through soft edges; this is an independent implementation, not Paper’s shader source."];
+const descriptions=["A fresh approximation of the reference’s organic, two-tone blobs—not its original shader source. Ochre and gold replace the blues.","Topographic ribbons bend and drift across a dark field. Fine gold contours give the motion a more graphic, editorial character.","Animated 3D gradient Perlin noise inspired by Paper’s Perlin Noise study. Small gold islands morph over matching page charcoal, retreating into an irregular lower edge; this is an independent implementation, not Paper’s shader source."];
 let mode=0,paused=reduced.matches,time=0,frames=0,last=0,report=0,lost=false;
 const pause=document.querySelector('#pause'),speed=document.querySelector('#speed'),contrast=document.querySelector('#contrast');
 pause.textContent=paused?'Play motion':'Pause';
+const perlinDefinitions=[
+  ['density','Density',1,10,.1,4],
+  ['proportion','Proportion',0,1,.01,.35],
+  ['softness','Softness',0,1,.01,.1],
+  ['octaveCount','Octave count',1,8,1,3],
+  ['persistence','Persistence',.3,1,.05,.55],
+  ['lacunarity','Lacunarity',1.5,10,.1,2],
+  ['scale','Scale',.25,4,.05,1],
+  ['rotation','Rotation',0,360,1,0],
+  ['retreat','Edge retreat',.1,.8,.05,.4]
+];
+const perlinInputs={};
+for(const [id,title,min,max,step,value] of perlinDefinitions){
+  const label=document.createElement('label'),input=document.createElement('input'),output=document.createElement('output');
+  label.append(document.createTextNode(title));Object.assign(input,{id,type:'range',min,max,step,value});output.htmlFor=id;output.value=value;
+  input.addEventListener('input',()=>{output.value=input.value;});
+  label.append(input,output);document.querySelector('#perlinGrid').append(label);perlinInputs[id]=input;
+}
 const gl=canvas.getContext('webgl2',{alpha:false,antialias:false,depth:false,powerPreference:'low-power'});
 function fail(message){status.textContent=message;}
 if(!gl){fail('WebGL2 unavailable. Check Brave’s graphics acceleration setting; the page remains usable.');}else{try{
@@ -44,6 +64,8 @@ in vec2 position;out vec2 uv;void main(){uv=position*.5+.5;gl_Position=vec4(posi
 const fragment=`#version 300 es
 precision highp float;
 in vec2 uv;out vec4 color;uniform vec2 resolution;uniform float time,contrast;uniform int mode;
+uniform float density,proportion,softness,persistence,lacunarity,scale,rotation,retreat;
+uniform int octaveCount;
 float hash(vec2 p){return fract(sin(dot(p,vec2(127.1,311.7)))*43758.5453);}
 float noise(vec2 p){vec2 i=floor(p),f=fract(p);f=f*f*(3.-2.*f);return mix(mix(hash(i),hash(i+vec2(1,0)),f.x),mix(hash(i+vec2(0,1)),hash(i+1.),f.x),f.y);}
 float ink(vec2 p,float phase){vec2 cell=floor(p);float v=0.;for(int y=-1;y<=1;y++){for(int x=-1;x<=1;x++){vec2 c=cell+vec2(x,y);float r=hash(c+phase);vec2 center=c+.5+vec2(sin(time*.55+r*6.28),cos(time*.43+r*9.))*.26;vec2 d=p-center;float f=max(0.,1.-dot(d,d)/(.27+r*.15));v+=f*f;}}return v;}
@@ -66,22 +88,42 @@ void main(){vec3 bg=vec3(40,40,40)/255.,dark=vec3(102,80,39)/255.,ochre=vec3(183
 if(mode==0){p.x+=time*.13;p+=vec2(noise(p*.7+time*.1),noise(p*.8-time*.08))*.5;float a=ink(p,1.),b=ink(p+vec2(2.3,.7),7.);float edge=smoothstep(.02,.32,uv.y);c=mix(c,dark,smoothstep(.13,.17,b)*edge);c=mix(c,mix(ochre,gold,.55),smoothstep(.23,.27,a)*edge);}
 else if(mode==1){float f=noise(p*.48+vec2(time*.12,0.))+.45*noise(p*.95-vec2(0.,time*.16));float bands=fract(f*7.);float line=1.-smoothstep(.04,.09,abs(bands-.5));float edge=smoothstep(0.,.25,uv.y);c=mix(c,dark,edge*.5);c=mix(c,ochre,line*edge*.85);c=mix(c,gold,line*edge*smoothstep(.65,1.1,f));}
 else{
-  // Time is the third dimension: regions evolve rather than merely translate.
-  float field=.5+perlin(vec3(p*.85+vec2(8.3,2.7),time*.22+4.2))*.85;
-  float shape=smoothstep(.35-.05,.35+.05,field);
+  float angle=radians(rotation);
+  vec2 domain=mat2(cos(angle),-sin(angle),sin(angle),cos(angle))*(p-vec2(aspect,1.)*1.15)*density/scale;
+  vec3 samplePoint=vec3(domain+vec2(8.3,2.7),time*.22+4.2);
+  float sum=0.,weight=1.,total=0.;
+  for(int octave=0;octave<8;octave++){
+    if(octave>=octaveCount)break;
+    // Suppress detail smaller than a pixel to avoid shimmering at high lacunarity.
+    float footprint=max(length(dFdx(samplePoint.xy)),length(dFdy(samplePoint.xy)));
+    float detail=1.-smoothstep(.35,1.,footprint);
+    sum+=perlin(samplePoint)*weight*detail;
+    total+=weight;
+    samplePoint=samplePoint*lacunarity+vec3(17.1,9.2,3.4);
+    weight*=persistence;
+  }
+  float field=.5+sum/max(total,.001)*1.5;
+  float threshold=1.-proportion;
+  // Raise the threshold along an irregular coast: islands end before the canvas does.
+  float coast=retreat*(.65+.35*noise(vec2(uv.x*aspect*1.5,time*.08)));
+  float withdrawal=1.-smoothstep(.015,coast,uv.y);
+  float feather=max(.001,softness*.25);
+  float shape=smoothstep(threshold-feather,threshold+feather,field-withdrawal);
+  shape*=smoothstep(0.,.025,uv.y);
+  if(proportion<=0.)shape=0.;
   c=mix(bg,gold,shape);
 }
 color=vec4(mix(bg,c,contrast),1.);}`;
 function compile(type,source){const s=gl.createShader(type);gl.shaderSource(s,source);gl.compileShader(s);if(!gl.getShaderParameter(s,gl.COMPILE_STATUS))throw Error(gl.getShaderInfoLog(s));return s;}
 const v=compile(gl.VERTEX_SHADER,vertex),f=compile(gl.FRAGMENT_SHADER,fragment),program=gl.createProgram();gl.attachShader(program,v);gl.attachShader(program,f);gl.linkProgram(program);if(!gl.getProgramParameter(program,gl.LINK_STATUS))throw Error(gl.getProgramInfoLog(program));gl.deleteShader(v);gl.deleteShader(f);gl.useProgram(program);const buffer=gl.createBuffer();gl.bindBuffer(gl.ARRAY_BUFFER,buffer);gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,3,-1,-1,3]),gl.STATIC_DRAW);const pos=gl.getAttribLocation(program,'position');gl.enableVertexAttribArray(pos);gl.vertexAttribPointer(pos,2,gl.FLOAT,false,0,0);gl.disable(gl.BLEND);
-const u=Object.fromEntries(['resolution','time','contrast','mode'].map(k=>[k,gl.getUniformLocation(program,k)]));
-function draw(){if(lost)return;gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(u.resolution,canvas.width,canvas.height);gl.uniform1f(u.time,time);gl.uniform1f(u.contrast,+contrast.value);gl.uniform1i(u.mode,mode);gl.drawArrays(gl.TRIANGLES,0,3);frames++;}
+const u=Object.fromEntries(['resolution','time','contrast','mode',...perlinDefinitions.map(([id])=>id)].map(k=>[k,gl.getUniformLocation(program,k)]));
+function draw(){if(lost)return;gl.viewport(0,0,canvas.width,canvas.height);gl.uniform2f(u.resolution,canvas.width,canvas.height);gl.uniform1f(u.time,time);gl.uniform1f(u.contrast,+contrast.value);gl.uniform1i(u.mode,mode);for(const [id,input] of Object.entries(perlinInputs)){if(id==='octaveCount')gl.uniform1i(u[id],+input.value);else gl.uniform1f(u[id],+input.value);}gl.drawArrays(gl.TRIANGLES,0,3);frames++;}
 function resize(){const dpr=Math.min(devicePixelRatio,matchMedia('(pointer:coarse)').matches?1:1.5);canvas.width=Math.round(canvas.clientWidth*dpr);canvas.height=Math.round(canvas.clientHeight*dpr);draw();}new ResizeObserver(resize).observe(canvas);
 function reportStatus(){status.textContent=lost?'WebGL context lost — reload to restart.':('WebGL2 · '+(paused?'paused'+(reduced.matches?' / reduced motion enabled':''):'running')+' · '+frames+' rendered frames · shader time '+time.toFixed(1)+'s');}
 function tick(now){if(!paused&&!lost&&document.visibilityState==='visible'&&now-last>=1000/30){time+=Math.min((now-last)/1000,.1)*Number(speed.value);last=now;draw();}else if(paused||document.hidden){last=now;}if(now-report>500){reportStatus();report=now;}requestAnimationFrame(tick);}requestAnimationFrame(tick);
 pause.onclick=()=>{paused=!paused;pause.textContent=paused?'Play motion':'Pause';reportStatus();};reduced.addEventListener('change',()=>{paused=reduced.matches;pause.textContent=paused?'Play motion':'Pause';reportStatus();});
-document.querySelectorAll('[data-mode]').forEach(button=>button.onclick=()=>{mode=+button.dataset.mode;document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelector('#description').textContent=descriptions[mode];draw();});contrast.oninput=draw;speed.oninput=()=>document.querySelector('#speedValue').textContent=speed.value+'×';document.querySelector('#height').onchange=e=>{canvas.style.height=e.target.value+'px';};canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;reportStatus();});
+document.querySelectorAll('[data-mode]').forEach(button=>button.onclick=()=>{mode=+button.dataset.mode;document.querySelectorAll('[data-mode]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));document.querySelector('#description').textContent=descriptions[mode];document.querySelector('#perlinControls').hidden=mode!==2;draw();});for(const input of Object.values(perlinInputs))input.addEventListener('input',draw);contrast.oninput=draw;speed.oninput=()=>document.querySelector('#speedValue').textContent=speed.value+'×';document.querySelector('#height').onchange=e=>{canvas.style.height=e.target.value+'px';};canvas.addEventListener('webglcontextlost',e=>{e.preventDefault();lost=true;reportStatus();});
 }catch(error){console.error(error);fail('Shader startup failed: '+error.message);}}
-document.querySelector('#copy').onclick=async()=>{const settings=JSON.stringify({direction:document.querySelector('[aria-pressed="true"]').firstChild.textContent,speed:+speed.value,contrast:+contrast.value,height:document.querySelector('#height').value},null,2);try{await navigator.clipboard.writeText(settings);document.querySelector('#copy').textContent='Settings copied';}catch{status.textContent=settings;}};
+document.querySelector('#copy').onclick=async()=>{const settings=JSON.stringify({direction:document.querySelector('[aria-pressed="true"]').firstChild.textContent,speed:+speed.value,contrast:+contrast.value,height:document.querySelector('#height').value,...(mode===2?{perlin:Object.fromEntries(Object.entries(perlinInputs).map(([id,input])=>[id,+input.value])),colorBack:'#282828',colorFront:'#fabd2f'}:{})},null,2);try{await navigator.clipboard.writeText(settings);document.querySelector('#copy').textContent='Settings copied';}catch{status.textContent=settings;}};
 </script>
 </html>
