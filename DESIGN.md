@@ -67,9 +67,12 @@ labels stay short and readable — never `001_index` or `FIELD_REF_BLOCK`.
 - Decorative exception: raw-WebGL2 bands occupy separate full-width rows above
   the header and below the footer, never behind navigation or reading content.
   The page must remain complete when they are unavailable.
-- `/shader-picker.html` is a standalone exploration page with three Gruvbox
-  directions and adjustable motion, contrast, and band height. Its styles and
-  shaders are not the production selection.
+- Production uses 180px Perlin noise bands: gold islands on page charcoal,
+  with an irregular retreat toward the content and a vertically mirrored footer.
+  The approved `/shader-picker.html` selection is speed 0.9, contrast 0.8,
+  density 4, proportion 0.42, softness 0.11, octaveCount 3, persistence 0.5,
+  lacunarity 2, scale 1, rotation 127, retreat 0.4; colors #282828 / #fabd2f.
+  The picker remains available for exploration; older shader experiments are unmounted.
 - Vertical rhythm: 48px between major blocks; 20px inside a list row.
 - No box borders. No hairline rules under the header or above the footer.
 - No corner marks, no top accent bar, no theme switcher chrome.
@@ -97,7 +100,7 @@ No other chrome.
 
 - Route change: 240ms opacity + 5px translateY. Transform and opacity only.
 - Reduced motion: 150ms opacity crossfade, no translation.
-- Ledger tide: decorative only; 30fps maximum on desktop and 20fps on coarse
+- Perlin tide: decorative only; 30fps maximum on desktop and 20fps on coarse
   pointers, low-power GPU preference, capped DPR, and reduced mobile render
   scale. Pause while off-screen or while the tab is hidden. Do not initialize
   it under `prefers-reduced-motion: reduce`; hide it in forced-colors mode.

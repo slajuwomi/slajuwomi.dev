@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import { LedgerTide } from "@/components/ledger-tide";
+import { PerlinTide } from "@/components/perlin-tide";
 import { site } from "@/lib/site-data";
 
 const navigation = [
@@ -27,7 +27,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <LedgerTide placement="header" />
+      <PerlinTide placement="header" />
       <header className="site-header">
         <Link href="/" className="site-name">
           Stephen Lajuwomi
@@ -61,7 +61,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
           </a>
         ))}
       </footer>
-      <LedgerTide placement="footer" />
+      <PerlinTide placement="footer" />
     </>
   );
 }

@@ -67,17 +67,18 @@ button:focus-visible {
   z-index: 1;
 }
 
-.ledger-tide {
+.perlin-tide {
   position: relative;
   align-self: center;
-  flex: 0 0 120px;
+  flex: 0 0 180px;
   display: block;
   width: 100vw;
-  height: 120px;
+  height: 180px;
   overflow: hidden;
+  pointer-events: none;
 }
 
-.ledger-tide canvas {
+.perlin-tide canvas {
   display: block;
   width: 100%;
   height: 100%;
@@ -322,13 +323,13 @@ button:focus-visible {
     transform: none;
   }
 
-  .ledger-tide {
+  .perlin-tide {
     display: none;
   }
 }
 
 @media (forced-colors: active) {
-  .ledger-tide {
+  .perlin-tide {
     display: none;
   }
 }
