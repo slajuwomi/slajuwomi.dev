@@ -64,9 +64,12 @@ labels stay short and readable — never `001_index` or `FIELD_REF_BLOCK`.
 
 - Page measure: 720px, centered.
 - Viewport: dark paper, no persistent full-page texture or WebGL scene.
-- Decorative exception: restrained raw-WebGL2 “ledger tide” bands may sit behind
-  the header and footer. They must not enter the central reading area, and the
-  page must remain complete when they are unavailable.
+- Decorative exception: raw-WebGL2 bands occupy separate full-width rows above
+  the header and below the footer, never behind navigation or reading content.
+  The page must remain complete when they are unavailable.
+- `/shader-picker.html` is a standalone exploration page with three Gruvbox
+  directions and adjustable motion, contrast, and band height. Its styles and
+  shaders are not the production selection.
 - Vertical rhythm: 48px between major blocks; 20px inside a list row.
 - No box borders. No hairline rules under the header or above the footer.
 - No corner marks, no top accent bar, no theme switcher chrome.
