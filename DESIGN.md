@@ -48,14 +48,15 @@ Single face: Roboto Mono, weights 400 and 700. No serif, no sans.
 
 | Role | Size | Weight | Line height | Color | Case |
 | --- | --- | --- | --- | --- | --- |
-| Site name | 14px | 400 | 20px | ink | Title case |
-| Nav | 14px | 700 | 20px | ink; accent when current | Title case |
-| Page title (Projects, Writing) | 22px | 700 | 28px | accent | Title case |
-| Product / post title | 16px | 700 | 22px | ink | Title case |
-| Body / bio | 15px | 400 | 26px | ink | Sentence case |
-| Meta / date | 12px | 400 | 16px | accent | as written |
-| Footer link | 12px | 400 | 16px | accent | Title case |
-| Post title | 22px | 700 | 30px | ink | Sentence case |
+| Site name | 16px | 400 | 24px | ink | Title case |
+| Nav | 16px | 700 | 24px | ink; accent when current | Title case |
+| Page title (Projects, Writing) | 25px | 700 | 34px | accent | Title case |
+| Product / list title | 18px | 700 | 24px | ink | Title case |
+| Bio / project copy | 16px | 400 | 24px | ink | Sentence case |
+| Article body | 17px | 400 | 29px | ink | Sentence case |
+| Meta / date | 14px | 400 | 20px | accent | as written |
+| Footer link | 14px | 400 | 20px | accent | Title case |
+| Post title | 25px | 700 | 34px | ink | Sentence case |
 
 Longform writing is the only place sentence case is required. Nav and
 labels stay short and readable — never `001_index` or `FIELD_REF_BLOCK`.
@@ -90,8 +91,8 @@ in ink. Stacked. The whole row is the hit target.
 
 **Footer.** Text links only: GitHub, LinkedIn, X. No icons. Accent color.
 
-**Post.** Date, title, then body at 15px / 26px. Section heads in the post
-use 12px accent, 700.
+**Post.** Date, title, then body at 17px / 29px. Section heads in the post
+use 14px accent, 700.
 
 **Focus.** `:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }`
 No other chrome.

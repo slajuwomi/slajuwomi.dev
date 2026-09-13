@@ -18,17 +18,18 @@
   --font-body: "Roboto Mono", ui-monospace, monospace;
   --font-mono: "Roboto Mono", ui-monospace, monospace;
 
-  --text-xs: 12px;
-  --text-sm: 13px;
-  --text-md: 14px;
-  --text-lg: 16px;
-  --text-xl: 22px;
-  --text-2xl: 28px;
-  --text-body: 15px;
+  --text-xs: 14px;
+  --text-sm: 15px;
+  --text-md: 16px;
+  --text-lg: 18px;
+  --text-xl: 25px;
+  --text-2xl: 32px;
+  --text-body: 17px;
 
-  --leading-tight: 20px;
-  --leading-body: 26px;
-  --leading-title: 30px;
+  --leading-small: 20px;
+  --leading-tight: 24px;
+  --leading-body: 29px;
+  --leading-title: 34px;
 
   --space-2xs: 4px;
   --space-xs: 8px;

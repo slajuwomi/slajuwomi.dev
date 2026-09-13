@@ -114,7 +114,7 @@ button:focus-visible {
 
 .footer-link {
   font-size: var(--text-xs);
-  line-height: 16px;
+  line-height: var(--leading-small);
   color: var(--color-accent);
 }
 
@@ -134,7 +134,7 @@ button:focus-visible {
 .meta {
   margin: 0 0 var(--space-xs);
   font-size: var(--text-xs);
-  line-height: 16px;
+  line-height: var(--leading-small);
   color: var(--color-accent);
 }
 
@@ -183,7 +183,7 @@ button:focus-visible {
   margin: 0;
   font-size: var(--text-xl);
   font-weight: 700;
-  line-height: 28px;
+  line-height: var(--leading-title);
   color: var(--color-accent);
 }
 
@@ -214,7 +214,7 @@ button:focus-visible {
 .item-title {
   font-size: var(--text-lg);
   font-weight: 700;
-  line-height: 22px;
+  line-height: var(--leading-tight);
 }
 
 .item-copy {
@@ -268,7 +268,7 @@ button:focus-visible {
   margin: 2rem 0 0.75rem;
   font-size: var(--text-xs);
   letter-spacing: 0.08em;
-  line-height: 16px;
+  line-height: var(--leading-small);
 }
 
 .prose p,
