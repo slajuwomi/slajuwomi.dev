@@ -46,7 +46,7 @@ button:focus-visible {
   max-width: var(--container-page);
   flex-direction: column;
   gap: var(--space-2xl);
-  padding: 48px 20px 80px;
+  padding: 0 20px;
 }
 
 .site-header,
@@ -68,16 +68,13 @@ button:focus-visible {
 }
 
 .ledger-tide {
-  position: absolute;
-  z-index: 0;
-  top: 50%;
-  left: 50%;
+  position: relative;
+  align-self: center;
+  flex: 0 0 120px;
   display: block;
-  width: min(960px, calc(100vw - 16px));
+  width: 100vw;
   height: 120px;
   overflow: hidden;
-  pointer-events: none;
-  transform: translate(-50%, -50%);
 }
 
 .ledger-tide canvas {

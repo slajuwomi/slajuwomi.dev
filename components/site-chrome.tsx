@@ -27,8 +27,8 @@ export function SiteChrome({ children }: { children: ReactNode }) {
 
   return (
     <>
+      <LedgerTide placement="header" />
       <header className="site-header">
-        <LedgerTide placement="header" />
         <Link href="/" className="site-name">
           Stephen Lajuwomi
         </Link>
@@ -49,7 +49,6 @@ export function SiteChrome({ children }: { children: ReactNode }) {
       <div className="site-route">{children}</div>
 
       <footer className="site-footer">
-        <LedgerTide placement="footer" />
         {footerLinks.map((item) => (
           <a
             key={item.label}
@@ -62,6 +61,7 @@ export function SiteChrome({ children }: { children: ReactNode }) {
           </a>
         ))}
       </footer>
+      <LedgerTide placement="footer" />
     </>
   );
 }

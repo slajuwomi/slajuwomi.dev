@@ -91,7 +91,7 @@ void main() {
 
   // A stepped tide line makes the field collect into rows rather than float freely.
   float tideLine = 1.42 + (valueNoise(vec2(domain.x * 0.34, time * 0.022)) - 0.5) * 0.72;
-  float pooled = smoothstep(0.12, -0.08, domain.y - tideLine) * 0.58;
+  float pooled = (1.0 - smoothstep(-0.08, 0.12, domain.y - tideLine)) * 0.58;
   float field = slowInk * 0.78 + quickInk * 0.42 + pooled;
 
   float body = smoothstep(0.54, 0.64, field);
@@ -253,7 +253,7 @@ export function LedgerTide({ placement }: LedgerTideProps) {
         gl.clearColor(0, 0, 0, 0);
         gl.clear(gl.COLOR_BUFFER_BIT);
         gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
-        gl.uniform1f(timeLocation, (now - startedAt) / 1000);
+        gl.uniform1f(timeLocation, (now - startedAt) / 1000 * 3);
         gl.uniform1f(hoverLocation, hoverValue);
         gl.drawArrays(gl.TRIANGLES, 0, 3);
       }
@@ -292,8 +292,8 @@ export function LedgerTide({ placement }: LedgerTideProps) {
 
     resizeObserver.observe(host);
     intersectionObserver.observe(host);
-    host.parentElement?.addEventListener("pointerenter", onPointerEnter);
-    host.parentElement?.addEventListener("pointerleave", onPointerLeave);
+    host.addEventListener("pointerenter", onPointerEnter);
+    host.addEventListener("pointerleave", onPointerLeave);
     document.addEventListener("visibilitychange", onVisibilityChange);
     canvas.addEventListener("webglcontextlost", onContextLost);
     resize();
@@ -303,8 +303,8 @@ export function LedgerTide({ placement }: LedgerTideProps) {
       if (frame) cancelAnimationFrame(frame);
       resizeObserver.disconnect();
       intersectionObserver.disconnect();
-      host.parentElement?.removeEventListener("pointerenter", onPointerEnter);
-      host.parentElement?.removeEventListener("pointerleave", onPointerLeave);
+      host.removeEventListener("pointerenter", onPointerEnter);
+      host.removeEventListener("pointerleave", onPointerLeave);
       document.removeEventListener("visibilitychange", onVisibilityChange);
       canvas.removeEventListener("webglcontextlost", onContextLost);
       gl.deleteBuffer(buffer);
