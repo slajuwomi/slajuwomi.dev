@@ -12,6 +12,11 @@ npm run dev
 
 Open [http://localhost:3000](http://localhost:3000).
 
+If edits stop showing up in the browser, use `npm run dev:poll` instead. On this
+Mac, Turbopack's file watcher can stop seeing changes after an editor saves by
+writing a temp file and renaming it over the original. `dev:poll` runs webpack
+and checks files on a timer, so every save is picked up.
+
 No environment variables are required for the local portfolio milestone.
 
 ## Routes
