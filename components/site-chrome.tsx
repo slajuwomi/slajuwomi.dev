@@ -3,7 +3,6 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { ReactNode } from "react";
-import { PerlinTide } from "@/components/perlin-tide";
 import { site } from "@/lib/site-data";
 
 const navigation = [
@@ -27,7 +26,6 @@ export function SiteChrome({ children }: { children: ReactNode }) {
 
   return (
     <>
-      <PerlinTide placement="header" />
       <header className="site-header">
         <Link href="/" className="site-name">
           Stephen Lajuwomi
@@ -61,7 +59,6 @@ export function SiteChrome({ children }: { children: ReactNode }) {
           </a>
         ))}
       </footer>
-      <PerlinTide placement="footer" />
     </>
   );
 }
