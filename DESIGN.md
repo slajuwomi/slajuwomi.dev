@@ -49,14 +49,13 @@ This file wins when they disagree.
 
 ## Type
 
-Single face: Lora (variable), weights 400–600,
-with italic for page titles. Mono only for code inside posts. No sans.
+Single face: Lora (variable), weights 400–600, upright only. Mono only for code inside posts. No sans.
 
 | Role | Size | Weight | Line height | Color | Case |
 | --- | --- | --- | --- | --- | --- |
 | Site name | 12px | 400 | 18px | ink | Title case |
 | Nav | 12px | 600 | 18px | ink; accent when current | Title case |
-| Page title (Projects, Writing) | 20px | 500 italic | 25px | accent | Title case |
+| Page title (Projects, Writing) | 20px | 600 | 25px | accent | Title case |
 | Product / list title | 14px | 600 | 18px | ink | Title case |
 | Bio / project copy | 12px | 400 | 18px | ink | Sentence case |
 | Article body | 13px | 400 | 21px | ink | Sentence case |
