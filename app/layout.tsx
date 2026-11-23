@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Crimson_Pro } from "next/font/google";
+import { Lora } from "next/font/google";
 import { SiteChrome } from "@/components/site-chrome";
 import { FerrofluidBackground } from "@/components/ferrofluid-background";
 import "./globals.css";
@@ -14,10 +14,10 @@ export const metadata: Metadata = {
     "Stephen Lajuwomi is a software developer building practical web tools and learning in public.",
 };
 
-const crimsonPro = Crimson_Pro({
+const lora = Lora({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  variable: "--font-crimson-pro",
+  variable: "--font-lora",
 });
 
 export default function RootLayout({
@@ -26,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${crimsonPro.variable} h-full`}>
+    <html lang="en" className={`${lora.variable} h-full`}>
       <head>
         <link rel="icon" href="/favicon/portrait/favicon.ico" sizes="any" />
         <link
