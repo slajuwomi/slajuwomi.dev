@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Roboto_Mono } from "next/font/google";
 import { SiteChrome } from "@/components/site-chrome";
-import { WheatFieldBackground } from "@/components/wheat-field-background";
+import { FerrofluidBackground } from "@/components/ferrofluid-background";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon/portrait/apple-touch-icon.png" />
       </head>
       <body className={`${robotoMono.className} min-h-full antialiased`}>
-        <WheatFieldBackground />
+        <FerrofluidBackground />
         <main className="site-canvas">
           <div className="site-column">
             <SiteChrome>{children}</SiteChrome>

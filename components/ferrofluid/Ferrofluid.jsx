@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useLayoutEffect, useRef } from 'react';
 import './Ferrofluid.css';
 
 const CELL = 1 / 3;
@@ -494,7 +494,11 @@ const Ferrofluid = ({
     dpr
   };
   const settingsRef = useRef(settings);
-  settingsRef.current = settings;
+  // Synced in a layout effect, since writing a ref during render breaks the
+  // React Compiler lint. It still lands before the frame loop reads it.
+  useLayoutEffect(() => {
+    settingsRef.current = settings;
+  });
 
   useEffect(() => {
     const container = containerRef.current;

@@ -46,15 +46,14 @@ button:focus-visible {
   color: var(--color-ink);
 }
 
-/* Darkens the blurred scene evenly so text stays readable over the
- * brightest clouds and wheat. */
+/* Dims the ferrofluid's brightest reflections so text stays readable. */
 .site-canvas::before {
   content: "";
   position: fixed;
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: rgb(29 32 33 / 75%);
+  background: rgb(29 32 33 / 45%);
 }
 
 .site-column {
@@ -84,28 +83,12 @@ button:focus-visible {
   z-index: 1;
 }
 
-/* Oversized by the blur radius on each side so the blur doesn't pull the
- * page color in at the viewport edges. */
-.wheat-field {
+.ferrofluid-background {
   position: fixed;
-  top: -8px;
-  left: -8px;
-  width: calc(100vw + 16px);
-  height: calc(100lvh + 16px);
+  inset: 0;
+  height: 100lvh;
   z-index: -2;
-  overflow: hidden;
   pointer-events: none;
-  background: var(--color-paper);
-}
-
-.wheat-field canvas {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-  display: block;
-  image-rendering: crisp-edges;
-  image-rendering: pixelated;
-  filter: blur(1px);
 }
 
 .site-name {
@@ -363,7 +346,7 @@ button:focus-visible {
 
 @media (forced-colors: active) {
 
-  .wheat-field,
+  .ferrofluid-background,
   .site-canvas::before {
     display: none;
   }
