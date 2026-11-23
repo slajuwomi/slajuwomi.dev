@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Newsreader } from "next/font/google";
+import { Crimson_Pro } from "next/font/google";
 import { SiteChrome } from "@/components/site-chrome";
 import { FerrofluidBackground } from "@/components/ferrofluid-background";
 import "./globals.css";
@@ -14,11 +14,10 @@ export const metadata: Metadata = {
     "Stephen Lajuwomi is a software developer building practical web tools and learning in public.",
 };
 
-const newsreader = Newsreader({
+const crimsonPro = Crimson_Pro({
   subsets: ["latin"],
   style: ["normal", "italic"],
-  axes: ["opsz"],
-  variable: "--font-newsreader",
+  variable: "--font-crimson-pro",
 });
 
 export default function RootLayout({
@@ -27,7 +26,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${newsreader.variable} h-full`}>
+    <html lang="en" className={`${crimsonPro.variable} h-full`}>
       <head>
         <link rel="icon" href="/favicon/portrait/favicon.ico" sizes="any" />
         <link

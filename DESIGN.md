@@ -36,8 +36,8 @@ This file wins when they disagree.
   --color-accent-ink: #0f0e11;
   --color-focus:      #e5534b;
 
-  --font-display: var(--font-newsreader), Georgia, serif;
-  --font-body:    var(--font-newsreader), Georgia, serif;
+  --font-display: var(--font-crimson-pro), Georgia, serif;
+  --font-body:    var(--font-crimson-pro), Georgia, serif;
   --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;
 
   --radius-card:  0;
@@ -48,7 +48,7 @@ This file wins when they disagree.
 
 ## Type
 
-Single face: Newsreader (variable, optical size axis), weights 400–600,
+Single face: Crimson Pro (variable), weights 400–600,
 with italic for page titles. Mono only for code inside posts. No sans.
 
 | Role | Size | Weight | Line height | Color | Case |
@@ -59,8 +59,8 @@ with italic for page titles. Mono only for code inside posts. No sans.
 | Product / list title | 21px | 600 | 26px | ink | Title case |
 | Bio / project copy | 18px | 400 | 26px | ink | Sentence case |
 | Article body | 19px | 400 | 31px | ink | Sentence case |
-| Meta / date | 14px | 400 | 20px | accent | as written |
-| Footer link | 14px | 400 | 20px | accent | Title case |
+| Meta / date | 16px | 400 | 22px | accent | as written |
+| Footer link | 16px | 400 | 22px | accent | Title case |
 | Post title | 30px | 600 | 36px | ink | Sentence case |
 
 Longform writing is the only place sentence case is required. Nav and
@@ -99,7 +99,7 @@ in ink. Stacked. The whole row is the hit target.
 **Footer.** Text links only: GitHub, LinkedIn, X. No icons. Accent color.
 
 **Post.** Date, title, then body at 19px / 31px. Section heads in the post
-use 14px accent, 600.
+use 16px accent, 600.
 
 **Focus.** `:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }`
 No other chrome.
@@ -125,7 +125,7 @@ images on About and Writing.
 | Do | Don't |
 | --- | --- |
 | Keep the 720px measure. | Full-bleed fluid layouts. |
-| Use Newsreader only. | Sans, mono for prose, or a second display face. |
+| Use Crimson Pro only. | Sans, mono for prose, or a second display face. |
 | Name pages About and Writing. | Coded IDs, theme names in the UI. |
 | Separate with space and type. | 1px rules, boxes, cards, corner marks. |
 | Footer as words. | Lucide or brand icons. |

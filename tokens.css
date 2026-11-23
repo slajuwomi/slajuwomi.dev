@@ -15,11 +15,11 @@
   --color-accent-ink: #0f0e11;
   --color-focus: #e5534b;
 
-  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
-  --font-body: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-display: var(--font-crimson-pro), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-crimson-pro), Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
-  --text-xs: 14px;
+  --text-xs: 16px;
   --text-sm: 16px;
   --text-md: 18px;
   --text-lg: 21px;
@@ -27,7 +27,7 @@
   --text-2xl: 32px;
   --text-body: 19px;
 
-  --leading-small: 20px;
+  --leading-small: 22px;
   --leading-tight: 26px;
   --leading-body: 31px;
   --leading-title: 36px;
