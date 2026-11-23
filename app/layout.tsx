@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Roboto_Mono } from "next/font/google";
+import { Newsreader } from "next/font/google";
 import { SiteChrome } from "@/components/site-chrome";
 import { FerrofluidBackground } from "@/components/ferrofluid-background";
 import "./globals.css";
@@ -14,9 +14,11 @@ export const metadata: Metadata = {
     "Stephen Lajuwomi is a software developer building practical web tools and learning in public.",
 };
 
-const robotoMono = Roboto_Mono({
+const newsreader = Newsreader({
   subsets: ["latin"],
-  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  axes: ["opsz"],
+  variable: "--font-newsreader",
 });
 
 export default function RootLayout({
@@ -25,7 +27,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className="h-full">
+    <html lang="en" className={`${newsreader.variable} h-full`}>
       <head>
         <link rel="icon" href="/favicon/portrait/favicon.ico" sizes="any" />
         <link
@@ -42,7 +44,7 @@ export default function RootLayout({
         />
         <link rel="apple-touch-icon" href="/favicon/portrait/apple-touch-icon.png" />
       </head>
-      <body className={`${robotoMono.className} min-h-full antialiased`}>
+      <body className="min-h-full antialiased">
         <FerrofluidBackground />
         <main className="site-canvas">
           <div className="site-column">

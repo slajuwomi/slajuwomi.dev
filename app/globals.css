@@ -10,6 +10,7 @@ body {
   margin: 0;
   min-height: 100%;
   color: var(--color-ink);
+  font-family: var(--font-body);
   color-scheme: dark;
 }
 
@@ -53,7 +54,7 @@ button:focus-visible {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  background: rgb(29 32 33 / 45%);
+  background: rgb(15 14 17 / 45%);
 }
 
 .site-column {
@@ -104,7 +105,7 @@ button:focus-visible {
 
 .nav-link {
   font-size: var(--text-md);
-  font-weight: 700;
+  font-weight: 600;
   line-height: var(--leading-tight);
   color: var(--color-ink);
 }
@@ -177,7 +178,7 @@ button:focus-visible {
 }
 
 .fact-link {
-  font-weight: 700;
+  font-weight: 600;
   text-decoration: underline;
   text-underline-offset: 3px;
 }
@@ -189,7 +190,8 @@ button:focus-visible {
 .page-title {
   margin: 0;
   font-size: var(--text-xl);
-  font-weight: 700;
+  font-style: italic;
+  font-weight: 500;
   line-height: var(--leading-title);
   color: var(--color-accent);
 }
@@ -220,7 +222,7 @@ button:focus-visible {
 
 .item-title {
   font-size: var(--text-lg);
-  font-weight: 700;
+  font-weight: 600;
   line-height: var(--leading-tight);
 }
 
@@ -252,7 +254,7 @@ button:focus-visible {
 .post-title {
   margin: 0;
   font-size: var(--text-xl);
-  font-weight: 700;
+  font-weight: 600;
   line-height: var(--leading-title);
 }
 
@@ -271,7 +273,7 @@ button:focus-visible {
 
 .prose :where(h1, h2, h3) {
   font-style: normal;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--color-accent);
 }
 
@@ -300,6 +302,10 @@ button:focus-visible {
   color: var(--color-accent);
   text-decoration: underline;
   text-underline-offset: 3px;
+}
+
+.prose :where(code, pre) {
+  font-family: var(--font-mono);
 }
 
 .prose pre {

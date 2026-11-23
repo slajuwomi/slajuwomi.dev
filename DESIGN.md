@@ -7,10 +7,14 @@ Canonical Paper page: [Night Ledger system](https://app.paper.design/file/01M0G2
 
 ## System
 
-- Genre · editorial (mono, document-led)
+- Genre · editorial (serif, document-led)
 - Macrostructure · Night Ledger
-- Theme · custom (vibe: "dark terminal ledger")
-- Axes · dark / mono / warm amber
+- Theme · custom (vibe: "ferrofluid under studio light")
+- Axes · dark / serif / chrome + magnet red
+
+Colors come from the Ferrofluid background: near-black fluid, white key
+lights, red fill light. The earlier gruvbox mono theme lives on branch
+`preserve/wheat-field-background`.
 
 Chosen over the Archival Dossier, Letter, and Sepia File prototypes.
 Corner registration marks, the amber top bar, and structural borders are
@@ -23,18 +27,18 @@ This file wins when they disagree.
 
 ```css
 :root {
-  --color-paper:      #282828;
-  --color-paper-2:    #32302f;
-  --color-ink:        #ebdbb2;
-  --color-ink-2:      #d5c4a1;
-  --color-muted:      #a89984;
-  --color-accent:     #d79921;
-  --color-accent-ink: #282828;
-  --color-focus:      #d79921;
+  --color-paper:      #0f0e11;
+  --color-paper-2:    #1b191e;
+  --color-ink:        #ece8e4;
+  --color-ink-2:      #c9c4c6;
+  --color-muted:      #9a949c;
+  --color-accent:     #e5534b;
+  --color-accent-ink: #0f0e11;
+  --color-focus:      #e5534b;
 
-  --font-display: "Roboto Mono", ui-monospace, monospace;
-  --font-body:    "Roboto Mono", ui-monospace, monospace;
-  --font-mono:    "Roboto Mono", ui-monospace, monospace;
+  --font-display: var(--font-newsreader), Georgia, serif;
+  --font-body:    var(--font-newsreader), Georgia, serif;
+  --font-mono:    ui-monospace, "SF Mono", Menlo, monospace;
 
   --radius-card:  0;
   --radius-pill:  0;
@@ -44,19 +48,20 @@ This file wins when they disagree.
 
 ## Type
 
-Single face: Roboto Mono, weights 400 and 700. No serif, no sans.
+Single face: Newsreader (variable, optical size axis), weights 400–600,
+with italic for page titles. Mono only for code inside posts. No sans.
 
 | Role | Size | Weight | Line height | Color | Case |
 | --- | --- | --- | --- | --- | --- |
-| Site name | 16px | 400 | 24px | ink | Title case |
-| Nav | 16px | 700 | 24px | ink; accent when current | Title case |
-| Page title (Projects, Writing) | 25px | 700 | 34px | accent | Title case |
-| Product / list title | 18px | 700 | 24px | ink | Title case |
-| Bio / project copy | 16px | 400 | 24px | ink | Sentence case |
-| Article body | 17px | 400 | 29px | ink | Sentence case |
+| Site name | 18px | 400 | 26px | ink | Title case |
+| Nav | 18px | 600 | 26px | ink; accent when current | Title case |
+| Page title (Projects, Writing) | 30px | 500 italic | 36px | accent | Title case |
+| Product / list title | 21px | 600 | 26px | ink | Title case |
+| Bio / project copy | 18px | 400 | 26px | ink | Sentence case |
+| Article body | 19px | 400 | 31px | ink | Sentence case |
 | Meta / date | 14px | 400 | 20px | accent | as written |
 | Footer link | 14px | 400 | 20px | accent | Title case |
-| Post title | 25px | 700 | 34px | ink | Sentence case |
+| Post title | 30px | 600 | 36px | ink | Sentence case |
 
 Longform writing is the only place sentence case is required. Nav and
 labels stay short and readable — never `001_index` or `FIELD_REF_BLOCK`.
@@ -93,8 +98,8 @@ in ink. Stacked. The whole row is the hit target.
 
 **Footer.** Text links only: GitHub, LinkedIn, X. No icons. Accent color.
 
-**Post.** Date, title, then body at 17px / 29px. Section heads in the post
-use 14px accent, 700.
+**Post.** Date, title, then body at 19px / 31px. Section heads in the post
+use 14px accent, 600.
 
 **Focus.** `:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }`
 No other chrome.
@@ -112,7 +117,7 @@ No other chrome.
 ## Imagery
 
 If a photo appears, it is filtered, never raw. Default Night Ledger
-filter: `grayscale(100%) contrast(1.1) sepia(0.2) invert(0.9)`. Prefer no
+filter: `grayscale(100%) contrast(1.1) invert(0.92)`. Prefer no
 images on About and Writing.
 
 ## Do / Don't
@@ -120,7 +125,7 @@ images on About and Writing.
 | Do | Don't |
 | --- | --- |
 | Keep the 720px measure. | Full-bleed fluid layouts. |
-| Use Roboto Mono 400/700 only. | Geist, serif, or a second display face. |
+| Use Newsreader only. | Sans, mono for prose, or a second display face. |
 | Name pages About and Writing. | Coded IDs, theme names in the UI. |
 | Separate with space and type. | 1px rules, boxes, cards, corner marks. |
 | Footer as words. | Lucide or brand icons. |

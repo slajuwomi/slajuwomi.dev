@@ -1,35 +1,36 @@
-/* Hallmark · macrostructure: Night Ledger · tone: utilitarian
- * theme: custom (vibe: "dark terminal ledger")
- * axes: dark / mono / warm amber
- * studied: yes · DNA-source: Paper Night Ledger prototypes
+/* Hallmark · macrostructure: Night Ledger · tone: editorial
+ * theme: custom (vibe: "ferrofluid under studio light")
+ * axes: dark / serif / chrome + magnet red
+ * Colors are pulled from the Ferrofluid background: near-black fluid,
+ * white key lights, red fill light.
  */
 
 :root {
-  --color-paper: #282828;
-  --color-paper-2: #32302f;
-  --color-ink: #ebdbb2;
-  --color-ink-2: #d5c4a1;
-  --color-muted: #a89984;
-  --color-accent: #d79921;
-  --color-accent-ink: #282828;
-  --color-focus: #d79921;
+  --color-paper: #0f0e11;
+  --color-paper-2: #1b191e;
+  --color-ink: #ece8e4;
+  --color-ink-2: #c9c4c6;
+  --color-muted: #9a949c;
+  --color-accent: #e5534b;
+  --color-accent-ink: #0f0e11;
+  --color-focus: #e5534b;
 
-  --font-display: "Roboto Mono", ui-monospace, monospace;
-  --font-body: "Roboto Mono", ui-monospace, monospace;
-  --font-mono: "Roboto Mono", ui-monospace, monospace;
+  --font-display: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-body: var(--font-newsreader), Georgia, "Times New Roman", serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
   --text-xs: 14px;
-  --text-sm: 15px;
-  --text-md: 16px;
-  --text-lg: 18px;
-  --text-xl: 25px;
+  --text-sm: 16px;
+  --text-md: 18px;
+  --text-lg: 21px;
+  --text-xl: 30px;
   --text-2xl: 32px;
-  --text-body: 17px;
+  --text-body: 19px;
 
   --leading-small: 20px;
-  --leading-tight: 24px;
-  --leading-body: 29px;
-  --leading-title: 34px;
+  --leading-tight: 26px;
+  --leading-body: 31px;
+  --leading-title: 36px;
 
   --space-2xs: 4px;
   --space-xs: 8px;
@@ -52,5 +53,5 @@
   --dur-base: 240ms;
   --dur-slow: 320ms;
 
-  --img-filter: grayscale(100%) contrast(1.1) sepia(0.2) invert(0.9);
+  --img-filter: grayscale(100%) contrast(1.1) invert(0.92);
 }
