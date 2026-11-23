@@ -20,18 +20,18 @@
   --font-body: var(--font-lora), Georgia, "Times New Roman", serif;
   --font-mono: ui-monospace, "SF Mono", Menlo, monospace;
 
-  --text-xs: 11px;
-  --text-sm: 11px;
-  --text-md: 12px;
-  --text-lg: 14px;
-  --text-xl: 20px;
-  --text-2xl: 22px;
-  --text-body: 13px;
+  --text-xs: 13px;
+  --text-sm: 13px;
+  --text-md: 14px;
+  --text-lg: 16px;
+  --text-xl: 23px;
+  --text-2xl: 25px;
+  --text-body: 15px;
 
-  --leading-small: 16px;
-  --leading-tight: 18px;
-  --leading-body: 21px;
-  --leading-title: 25px;
+  --leading-small: 18px;
+  --leading-tight: 21px;
+  --leading-body: 24px;
+  --leading-title: 29px;
 
   --space-2xs: 4px;
   --space-xs: 8px;

@@ -53,15 +53,15 @@ Single face: Lora (variable), weights 400–600, upright only. Mono only for cod
 
 | Role | Size | Weight | Line height | Color | Case |
 | --- | --- | --- | --- | --- | --- |
-| Site name | 12px | 400 | 18px | ink | Title case |
-| Nav | 12px | 600 | 18px | ink; accent when current | Title case |
-| Page title (Projects, Writing) | 20px | 600 | 25px | accent | Title case |
-| Product / list title | 14px | 600 | 18px | ink | Title case |
-| Bio / project copy | 12px | 400 | 18px | ink | Sentence case |
-| Article body | 13px | 400 | 21px | ink | Sentence case |
-| Meta / date | 11px | 400 | 16px | accent | as written |
-| Footer link | 11px | 400 | 16px | accent | Title case |
-| Post title | 20px | 600 | 25px | ink | Sentence case |
+| Site name | 14px | 400 | 21px | ink | Title case |
+| Nav | 14px | 600 | 21px | ink; accent when current | Title case |
+| Page title (Projects, Writing) | 23px | 600 | 29px | accent | Title case |
+| Product / list title | 16px | 600 | 21px | ink | Title case |
+| Bio / project copy | 14px | 400 | 21px | ink | Sentence case |
+| Article body | 15px | 400 | 24px | ink | Sentence case |
+| Meta / date | 13px | 400 | 18px | accent | as written |
+| Footer link | 13px | 400 | 18px | accent | Title case |
+| Post title | 23px | 600 | 29px | ink | Sentence case |
 
 Longform writing is the only place sentence case is required. Nav and
 labels stay short and readable — never `001_index` or `FIELD_REF_BLOCK`.
@@ -98,8 +98,8 @@ in ink. Stacked. The whole row is the hit target.
 
 **Footer.** Text links only: GitHub, LinkedIn, X. No icons. Accent color.
 
-**Post.** Date, title, then body at 13px / 21px. Section heads in the post
-use 11px accent, 600.
+**Post.** Date, title, then body at 15px / 24px. Section heads in the post
+use 13px accent, 600.
 
 **Link hover.** Ink links turn accent on hover; accent links (footer,
 in-post, current nav) turn accent-hover. 180ms color transition, only
