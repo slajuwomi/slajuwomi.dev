@@ -33,6 +33,7 @@ This file wins when they disagree.
   --color-ink-2:      #c9c4c6;
   --color-muted:      #9a949c;
   --color-accent:     #e5534b;
+  --color-accent-hover: #ff8a80;
   --color-accent-ink: #0f0e11;
   --color-focus:      #e5534b;
 
@@ -100,6 +101,10 @@ in ink. Stacked. The whole row is the hit target.
 
 **Post.** Date, title, then body at 18px / 30px. Section heads in the post
 use 15px accent, 600.
+
+**Link hover.** Ink links turn accent on hover; accent links (footer,
+in-post, current nav) turn accent-hover. 180ms color transition, only
+under `(hover: hover)`.
 
 **Focus.** `:focus-visible { outline: 2px solid var(--color-focus); outline-offset: 2px; }`
 No other chrome.
