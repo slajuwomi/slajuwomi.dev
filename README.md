@@ -7,12 +7,12 @@ Stephen Lajuwomi's public portfolio. It uses Next.js 16, TypeScript, Tailwind CS
 Install dependencies and start the app:
 
 ```bash
-npm run dev
+bun run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000).
 
-If edits stop showing up in the browser, use `npm run dev:poll` instead. On this
+If edits stop showing up in the browser, use `bun run dev:poll` instead. On this
 Mac, Turbopack's file watcher can stop seeing changes after an editor saves by
 writing a temp file and renaming it over the original. `dev:poll` runs webpack
 and checks files on a timer, so every save is picked up.
@@ -48,8 +48,8 @@ Follow `docs/signature-guide.md` for the signature workflow. Add real project sc
 ## Checks
 
 ```bash
-npm run lint
-npm run build
+bun run lint
+bun run build
 ```
 
 ## Deploy
@@ -73,7 +73,7 @@ vercel project inspect slajuwomi.dev --scope slajuwomis-projects
 vercel inspect https://slajuwomi.dev --scope slajuwomis-projects
 ```
 
-If `vercel` is missing from an agent's PATH, use `npx --yes vercel@59.16.0` in
+If `vercel` is missing from an agent's PATH, use `bunx vercel@59.16.0` in
 its place. A new machine or expired session requires an interactive
 `vercel login`; do not copy credentials into source control. To link a fresh
 checkout after login:

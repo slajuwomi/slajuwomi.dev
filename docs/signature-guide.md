@@ -45,12 +45,12 @@ Animation should follow the real stroke order. Add a path length animation only 
 
 ## Preview locally
 
-1. Run `npm run dev`.
+1. Run `bun run dev`.
 2. Open `http://localhost:3000`.
 3. Check the bottom of the About page.
 4. Test both themes.
 5. Test at narrow and wide sizes.
-6. Run `npm run lint` and `npm run build`.
+6. Run `bun run lint` and `bun run build`.
 
 ## What Stephen provides
 

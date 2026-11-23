@@ -82,8 +82,8 @@ The prototype recreates this visual grammar instead of attempting a cube-for-cub
 
 ```bash
 cd prototypes/crystalline-void
-npm install
-npm run dev
+bun install
+bun run dev
 ```
 
 Vite normally serves the prototype at `http://127.0.0.1:5173/`.
@@ -91,7 +91,7 @@ Vite normally serves the prototype at `http://127.0.0.1:5173/`.
 Build verification:
 
 ```bash
-npm run build
+bun run build
 ```
 
 The build succeeds. Vite reports a non-blocking warning because the prototype JavaScript chunk is approximately `505 kB` before gzip and `128 kB` after gzip. Treat that as expected prototype debt, not an acceptable production baseline.
@@ -594,9 +594,9 @@ The composition remains deterministic and preserves the signature central void. 
 
 ### Verification completed
 
-- `npm run lint`
-- `npx tsc --noEmit`
-- `npm run build`
+- `bun run lint`
+- `bunx tsc --noEmit`
+- `bun run build`
 - visual inspection in dark and light themes at the default desktop viewport
 - visual inspection at `390 × 844` in dark and light themes
 - live theme switching without renderer failure

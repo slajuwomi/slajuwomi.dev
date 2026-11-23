@@ -117,8 +117,8 @@ Host remains full-viewport (`width/height: 100%`), not the 1080×1080 preview bo
 
 ```bash
 git checkout demo/liquid-ether-background
-npm install
-npm run dev
+bun install
+bun run dev
 # open / and /writing/learning-to-code-in-the-agentic-era
 ```
 
